@@ -1,0 +1,355 @@
+<html>
+<head>
+	<title>
+		LNO2
+	</title>
+</head>
+<!--Initialising css folders-->
+<link rel="stylesheet" href="cssl/materialize.css">
+<link rel="stylesheet" href="cssl/sidenav.css">
+<!--Initialising javascript folders-->
+<script type="text/javascript" src="jsl/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"src="jsl/materialize.min.1.js"></script>
+<script type="text/javascript" src="jsl/materialize.js"></script>
+<script type="text/javascript"src="jsl/bold.js"></script>
+<!--Initialising icon font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!--Styling header tags-->
+
+</head>
+<body>
+ <!--Navbar begins-->
+<div id="nav" class="navbar-fixed center">
+	<nav class="blue-grey darken-1">
+		<div class="row">
+			<div class="white-text" style="font-size:35px">
+				<div class="col s2 offset-s5">LNO2</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<!--Navbar end-->
+
+<!--Side Navbar begins-->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="margin-top:19% ">&times;</a>
+  <img src="Myclicks/DSCN7124.JPG" alt="Mountain View" style="width:100%;height:40%;">
+  <a href="#">Friend suggestions</a>
+  <a href="#">Newfeed</a>
+  <a href="#">My account</a>
+  <a href="#">Contact</a>
+</div>
+<!--Side Navbar ends-->
+
+<!--EVERYTHING IN THIS DIVISION ONLY START-->
+<div id="main">
+  <a  style="font-size:30px;cursor:pointer" onclick="openNav()" class="btn-floating btn-large waves-effect waves-dark grey"><i class="material-icons">account_circle</i></a>
+  <div class="row">
+    <form class="col l8 offset-l2">
+       <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea name="myTextArea" id="myTextArea" class="materialize-textarea" placeholder="Enter Text Here ..."></textarea>
+          <label for="icon_prefix2">Share your feelings!</label>
+        </div>
+      </div>
+    </form>
+	
+	<form class="col l8" action="upload.php" method="post" enctype="multipart/form-data">
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="button" onclick="Bold()" value="Bold"/> 
+	</form>
+  </div>
+  </form>
+ <!--PEOPLE YOU MAY KNOW STARTS--> 
+  <div class="col s2 m2 l2">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+            </div>
+            <div class="col s10">
+              <span class="black-text">
+                This is a square image. Add the "circle" class to it to make it appear circular.
+              </span>
+            </div>
+          </div>
+        </div>
+   </div>
+<!--PEOPLE YOU MAY KNOW ENDS--> 
+
+</div>
+<div class="row">
+<div class="col l6 s12 offset-l3">
+<h2 class="w3-center">Suggested Groups</h2>
+
+<div class="w3-content w3-display-container">
+  <img class="mySlides" src="img/t1.jpg" style="width:100%">
+  <img class="mySlides" src="img/t2.jpg" style="width:100%">
+  <img class="mySlides" src="img/t3.jpg" style="width:100%">
+  <img class="mySlides" src="img/t4.jpg" style="width:100%">
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+</div>
+</div>
+<br>
+<div class="row">
+<center><h1>NewsFeed</h1></center>
+<div class="col l8 offset-l2">
+      <div class="card large">
+        <div class="card-image">
+          <img src="img/t2.jpg" height="600" width="600">
+        </div>
+		
+      </div>
+    </div>
+</div>
+</div>
+<!--EVERYTHING IN THIS DIVISION ONLY ENDS-->
+<div class="fixed-action-btn" style="bottom: 14px; right:3%;">
+		<a class="btn-floating btn-large black">
+			<i class="large material-icons">star</i>
+		</a>
+		<ul>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="interests" href="#myModal"><i class="large material-icons">perm_identity</i></a></li>
+			
+		</ul>
+	</div>
+	 <div id="myModal" class="modal">
+	<div class="modal-content center blue-grey lighten-4 black-text">
+		<h2>Interests</h2>
+		 
+  <div class="chips chips-autocomplete"></div>
+  <center><a class="waves-effect waves-light btn" href="interestpage.html"><i class="material-icons right">done</i>DONE!</a></center>
+	</div>
+	
+	 <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+  </div>
+  <div class="fixed-action-btn" style="bottom: 14px; right:95%;">
+		<a class="btn-floating btn-large black">
+			<i class="large material-icons">language</i>
+		</a>
+		<ul>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer" href="#developers"><i class="large material-icons">perm_identity</i></a></li>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Contact Us" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
+			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Search Friends" href="#friends"><i class="large material-icons">supervisor_account</i></a></li>
+			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Change Password" href="#password"><i class="large material-icons">https</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.html"><i class="large material-icons">vpn_key</i></a></li>
+			
+		</ul>
+	</div>
+	 <div id="developers" class="modal">
+	<div class="modal-content center blue-grey lighten-4 black-text">
+		<h2><b> Developer </b></h2>
+		<div class="col s4 m4 l4 offset-s4">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;"><b>Project Lead:- Yash Gupta</b>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Anmol Agrawal
+		</div>
+		</div>
+		<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Aman Deep Singh
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Rakshit Jain
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Sakshi Agarwal
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Rishav Keshari
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Jishu Dohare
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Divyansh Rai
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Anik Saha
+		</div>
+		</div>
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Bavya Arun
+		</div>
+		</div>		
+<div class="col s4 m4 l4 ">
+		<div class="desc" style="padding: 15px;
+			text-align: center;color:black;">Heli Fajalia
+		</div>
+		</div>		
+	</div>
+	</div>
+	<div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+  </div>
+   <div id="contact" class="modal">
+	<div class="modal-content center blue-grey lighten-4 black-text">
+		<h2>Contact Us</h2>
+	</div>
+
+	
+	 <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+  </div>
+  <div id="password" class="modal">
+  <div class="modal-content center blue-grey lighten-4 black-text">
+    <h2>Change Password</h2>
+  </div>
+  
+  
+   <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+  </div>
+   <div id="friends" class="modal">
+  <div class="modal-content center blue-grey lighten-4 black-text">
+    <h2>Friend Suggestions</h2>
+  </div>
+  
+   <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+  </div>
+  <footer class="page-footer black">
+          <div class="container">
+            <div class="row">
+                <p class="grey-text text-lighten-4 center">Developed and Created by</p>
+        <p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+            </div>
+          </div>
+          
+        </footer>
+  <script>
+  $(document).ready(function(){
+  $('.chips').material_chip();
+  $('.chips-autocomplete').material_chip({
+    autocompleteOptions: {
+      data: {
+        'Apple': null,
+        'Microsoft': null,
+        'Google': null
+      },
+      limit: Infinity,
+      minLength: 1
+    }
+  });
+});
+  
+   var chip = {
+    tag: 'chip content',
+    image: '', //optional
+    id: 1, //optional
+  };
+  
+   $('.chips').on('chip.add', function(e, chip){
+    // you have the added chip here
+  });
+
+  $('.chips').on('chip.delete', function(e, chip){
+    // you have the deleted chip here
+  });
+
+  $('.chips').on('chip.select', function(e, chip){
+    // you have the selected chip here
+  });
+  
+  $('.chips-initial').material_chip('data');
+  </script>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1} 
+    if (n < 1) {slideIndex = x.length} ;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    x[slideIndex-1].style.display = "block"; 
+}
+</script>
+<script>
+function bold() {
+    var x = $('#myTextArea');
+    if (x.css("font-weight") !== "bold") {
+        x.css("font-weight", "bold");
+    } else {
+        x.css("font-weight", "normal");
+    }
+}
+</script>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
+</script>
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+<script>
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+</script> 
+</body>
+</html>

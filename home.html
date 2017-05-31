@@ -1,0 +1,214 @@
+<html>
+<head>
+<title>home</title>
+</head>
+<!--Initialising css folders-->
+<link rel="stylesheet" href="cssr/materialize.css">
+<!--Initialising javascript folders-->
+<script type="text/javascript" src="jsr/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="jsr/materialize.js"></script>
+<!--Initialising icon font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!--Styling header tags-->
+<style>
+h1,h2,h3,h4,h5,h6{
+font-family:ariel
+}
+</style>
+<!--Initialisations end-->
+
+<body>
+<div id="navbar" class="scrollspy"></div>
+<nav>
+    <div class="col s12 m12 l12 nav-wrapper black">
+      <center><a href="landing.html" class="brand-logo">LNO2</a></center><!--<img src="img/ISTE.png" style="width:60px; height:60px;"></a>-->
+      <ul id="nav-mobile" class="right">
+	    <li><a class="modal-trigger" href="#signup">SignUp</a></li>
+        <li><a id="loginb">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+ <nav id="logind" class="black" style="visibility: hidden; position: absolute; z-index:5">
+	<div class="col s12 m12 l12 nav-wrapper">
+		<div class="row">
+		<form class="col l12 m12 s12">
+			<div class="row">
+				<div class="input-field col l3 m3 s3" style="border-radius:5; height:50px; margin-top:5;">
+					<input placeholder="Enter Email" id="email" type="text" class="validate grey darken-4">
+				</div>
+				<div class="input-field offset-l1 offset-m1 offset-s1 col l3 m3 s3" style="border-radius:5; height:50px;  margin-top:5;">
+          <input placeholder="Enter Password" id="psw" type="text" class="validate grey darken-4">
+        </div>
+        <div class="input-field offset-l1 offset-m1 offset-s1 col l2 m2 s2" style="border-radius:5; height:50px;  margin-top:5;">
+          <input placeholder="Enter Password" id="psw" type="text" class="validate grey darken-4">
+        </div>
+        <div class="offset-l1 offset-m1 offset-s1 col l1 m1 s1" style=" margin-top:10;">
+					<a class="waves-effect waves-light btn grey darken-4" style="border-radius:5;" type="submit" name="action" href="login.html">SUBMIT</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	</div>
+</nav>
+    <div class="slider fullscreen">
+    <ul class="slides">
+      <li>
+        <img src="img/r0.jpg"> <!-- random image -->
+      </li>
+      <li>
+        <img src="img/r1.jpg"> <!-- random image -->
+      </li>
+      <li>
+        <img src="img/r2.jpg"> <!-- random image -->
+      </li>
+      <li>
+        <img src="img/r3.jpg"> <!-- random image -->
+      </li>
+    </ul>
+  </div>
+  <br>
+ <div id="aboutus">
+ <ul>
+	<li style="opacity:0"><h1><center>ABOUT US</center></h1></li>
+ </ul>
+ <ul class="collapsible popout" data-collapsible="accordion">
+    <li style="opacity:0;">
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li  style="opacity:0;">
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li style="opacity:0;">
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+  </ul>
+  </div>
+  <div id="contactus">
+ <ul>
+	<li style="opacity:0"><h1><center>CONTACT US</center></h1></li>
+ </ul>
+ <ul class="collapsible popout" data-collapsible="accordion">
+    <li style="opacity:0;">
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li style="opacity:0;">
+      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li style="opacity:0;">
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+  </ul>
+  </div>
+ 
+		<div class="fixed-action-btn tooltipped" data-position="left" data-delay="50" data-tooltip="Back to Top"   style="bottom: 14px;">
+		<a class="btn-floating btn-large black" href="#navbar">
+			<i class="large material-icons">navigation</i>
+		</a>
+	</div>
+
+   <div id="signup" class="modal">
+  <div class="modal-content center black-text">
+    <h2>Signup</h2>
+    <form autocomplete="off" method="" action="">
+      <div class="row">
+        <div class="input-field col s10 offset-s1">
+          <input type="text" id="id" name="email" class="validate" >
+          <label for="id">Name</label>
+        </div>
+        <div class="input-field col s10 offset-s1">
+          <input type="password" id="pw" name="pwd" class="validate" >
+          <label for="pw">Email-Id</label>
+        </div>
+        <div class="input-field col s10 offset-s1">
+          <input type="password" id="pw" name="pwd" class="validate" >
+          <label for="pw">Enter Password</label>
+        </div>
+        <div class="input-field col s10 offset-s1">
+          <input type="password" id="pw" name="pwd" class="validate" >
+          <label for="pw">Re-Enter Password</label>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+          <a class="waves-effect waves-light btn grey darken-4" style="border-radius:5;" type="submit" name="action" href="login.html">SUBMIT</a>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
+ <footer class="page-footer black">
+          <div class="container">
+            <div class="row">
+                <p class="grey-text text-lighten-4 center">Developed and Created by</p>
+        <p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+            </div>
+          </div>
+          
+        </footer>
+
+</body>
+ <script>	
+  $('.tap-target').tapTarget('open');
+  $('.tap-target').tapTarget('close');
+ </script>
+ <script>
+    $(document).ready(function(){
+      $('.slider').slider();
+    });
+  </script>
+  <script>
+	// Pause slider
+	$('.slider').slider('pause');
+	// Start slider
+	$('.slider').slider('start');
+	// Next slide
+	$('.slider').slider('next');
+	// Previous slide
+	$('.slider').slider('prev');
+  </script>
+  <script>
+	
+  $(document).ready(function(){
+    $('.scrollspy').scrollSpy();
+  });
+  </script>
+ 
+	<script>
+	$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  </script>
+  <script>
+  var options = [
+      {selector: '#aboutus', offset: 50, callback: function(el) {
+        Materialize.showStaggeredList('#aboutus');
+      } },	
+      {selector: '#contactus', offset: 50, callback: function(el) {
+        Materialize.showStaggeredList('#contactus');
+      } },
+    ];
+    Materialize.scrollFire(options);
+	</script>
+	<script>
+		$("#loginb").click(function(){
+		$("#logind").css("position","relative");
+		$("#logind").css("visibility","visible");
+});
+  </script>
+
+  <script>
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+</script>
+
+</html>
