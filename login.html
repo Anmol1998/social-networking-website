@@ -5,13 +5,13 @@
 	</title>
 </head>
 <!--Initialising css folders-->
-<link rel="stylesheet" href="cssl/materialize.css">
-<link rel="stylesheet" href="cssl/sidenav.css">
+<link rel="stylesheet" href="cssr/materialize.css">
+<link rel="stylesheet" href="cssr/sidenav.css">
 <!--Initialising javascript folders-->
-<script type="text/javascript" src="jsl/jquery-2.1.1.min.js"></script>
-<script type="text/javascript"src="jsl/materialize.min.1.js"></script>
-<script type="text/javascript" src="jsl/materialize.js"></script>
-<script type="text/javascript"src="jsl/bold.js"></script>
+<script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"src="js1/materialize.min.1.js"></script>
+<script type="text/javascript" src="js1/materialize.js"></script>
+<script type="text/javascript"src="js1/bold.js"></script>
 <!--Initialising icon font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,11 +21,11 @@
 </head>
 <body>
  <!--Navbar begins-->
-<div id="nav" class="navbar-fixed center">
+<div id="nav" class="navbar-fixed">
 	<nav class="blue-grey darken-1">
 		<div class="row">
 			<div class="white-text" style="font-size:35px">
-				<div class="col s2 offset-s5">LNO2</div>
+				<div class="col s2 offset-s5" style="margin-left:10px">LNO2</div>
 			</div>
 		</div>
 	</nav>
@@ -36,10 +36,8 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="margin-top:19% ">&times;</a>
   <img src="Myclicks/DSCN7124.JPG" alt="Mountain View" style="width:100%;height:40%;">
-  <a href="#">Friend suggestions</a>
-  <a href="#">Newfeed</a>
   <a href="#">My account</a>
-  <a href="#">Contact</a>
+  <a href="#">Email</a>
 </div>
 <!--Side Navbar ends-->
 
@@ -57,11 +55,22 @@
           <label for="icon_prefix2">Share your feelings!</label>
         </div>
       </div>
+	<div class="row">
+		<div class="col s12">
+		<div class="row">
+			<div class="input-field col s6">
+			<i class="material-icons prefix">textsms</i>
+			<div class="chips chips-autocomplete"></div>
+  			<label for="icon_prefix2">Groups to Share With...</label>
+			</div>
+		</div>
+		</div>
+	</div>    
     </form>
 	
 	<form class="col l8" action="upload.php" method="post" enctype="multipart/form-data">
 			<input type="file" name="fileToUpload" id="fileToUpload">
-			<input type="button" onclick="Bold()" value="Bold"/> 
+			<input type="button" onclick="bold()" value="Bold"/> 
 	</form>
   </div>
   </form>
@@ -83,62 +92,18 @@
 <!--PEOPLE YOU MAY KNOW ENDS--> 
 
 </div>
-<div class="row">
-<div class="col l6 s12 offset-l3">
-<h2 class="w3-center">Suggested Groups</h2>
-
-<div class="w3-content w3-display-container">
-  <img class="mySlides" src="img/t1.jpg" style="width:100%">
-  <img class="mySlides" src="img/t2.jpg" style="width:100%">
-  <img class="mySlides" src="img/t3.jpg" style="width:100%">
-  <img class="mySlides" src="img/t4.jpg" style="width:100%">
-
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
-</div>
-</div>
-<br>
-<div class="row">
-<center><h1>NewsFeed</h1></center>
-<div class="col l8 offset-l2">
-      <div class="card large">
-        <div class="card-image">
-          <img src="img/t2.jpg" height="600" width="600">
-        </div>
-		
-      </div>
-    </div>
-</div>
 </div>
 <!--EVERYTHING IN THIS DIVISION ONLY ENDS-->
 <div class="fixed-action-btn" style="bottom: 14px; right:3%;">
 		<a class="btn-floating btn-large black">
 			<i class="large material-icons">star</i>
 		</a>
-		<ul>
-		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="interests" href="#myModal"><i class="large material-icons">perm_identity</i></a></li>
-			
-		</ul>
-	</div>
-	 <div id="myModal" class="modal">
-	<div class="modal-content center blue-grey lighten-4 black-text">
-		<h2>Interests</h2>
-		 
-  <div class="chips chips-autocomplete"></div>
-  <center><a class="waves-effect waves-light btn" href="interestpage.html"><i class="material-icons right">done</i>DONE!</a></center>
-	</div>
-	
-	 <div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-  </div>
-  </div>
+</div>
   <div class="fixed-action-btn" style="bottom: 14px; right:95%;">
 		<a class="btn-floating btn-large black">
 			<i class="large material-icons">language</i>
 		</a>
 		<ul>
-		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer" href="#developers"><i class="large material-icons">perm_identity</i></a></li>
 		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Contact Us" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
 			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Search Friends" href="#friends"><i class="large material-icons">supervisor_account</i></a></li>
 			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Change Password" href="#password"><i class="large material-icons">https</i></a></li>
@@ -146,100 +111,34 @@
 			
 		</ul>
 	</div>
-	 <div id="developers" class="modal">
-	<div class="modal-content center blue-grey lighten-4 black-text">
-		<h2><b> Developer </b></h2>
-		<div class="col s4 m4 l4 offset-s4">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;"><b>Project Lead:- Yash Gupta</b>
-		</div>
-		</div>
-		<div class="row">
-		<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Anmol Agrawal
-		</div>
-		</div>
-		<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Aman Deep Singh
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Rakshit Jain
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Sakshi Agarwal
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Rishav Keshari
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Jishu Dohare
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Divyansh Rai
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Anik Saha
-		</div>
-		</div>
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Bavya Arun
-		</div>
-		</div>		
-<div class="col s4 m4 l4 ">
-		<div class="desc" style="padding: 15px;
-			text-align: center;color:black;">Heli Fajalia
-		</div>
-		</div>		
-	</div>
-	</div>
-	<div class="modal-footer">
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-  </div>
-  </div>
-   <div id="contact" class="modal">
+  
+  <div id="contact" class="modal">
 	<div class="modal-content center blue-grey lighten-4 black-text">
 		<h2>Contact Us</h2>
-	</div>
-
-	
+	</div>	
 	 <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
   </div>
+
   <div id="password" class="modal">
   <div class="modal-content center blue-grey lighten-4 black-text">
     <h2>Change Password</h2>
   </div>
-  
-  
-   <div class="modal-footer">
+  <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
   </div>
-   <div id="friends" class="modal">
+
+  <div id="friends" class="modal">
   <div class="modal-content center blue-grey lighten-4 black-text">
     <h2>Friend Suggestions</h2>
   </div>
-  
-   <div class="modal-footer">
+    <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
   </div>
+  <br><br><br><br><br>
   <footer class="page-footer black">
           <div class="container">
             <div class="row">
@@ -252,6 +151,10 @@
   <script>
   $(document).ready(function(){
   $('.chips').material_chip();
+  $('.chips-placeholder').material_chip({
+    placeholder: 'Groups',
+    secondaryPlaceholder: '+Groups',
+  });
   $('.chips-autocomplete').material_chip({
     autocompleteOptions: {
       data: {
@@ -286,25 +189,6 @@
   $('.chips-initial').material_chip('data');
   </script>
 <script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-    showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    if (n > x.length) {slideIndex = 1} 
-    if (n < 1) {slideIndex = x.length} ;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none"; 
-    }
-    x[slideIndex-1].style.display = "block"; 
-}
-</script>
-<script>
 function bold() {
     var x = $('#myTextArea');
     if (x.css("font-weight") !== "bold") {
@@ -328,28 +212,9 @@ function closeNav() {
 }
 </script>
 <script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script>
-<script>
 $(document).ready(function(){
     $('.modal-trigger').leanModal();
   });
-</script> 
+</script>
 </body>
 </html>
