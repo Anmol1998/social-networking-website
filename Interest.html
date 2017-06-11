@@ -1,22 +1,106 @@
 <html>
 <title>Interests</title>
+<head>
+<link rel="stylesheet" href="css/materialize.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+
+<script src="jquery-2.1.4.js"></script>
+<script src="jquery-ui_1.12.1_.min.js"></script>
+<script src="facebook-reactions.js"></script>
+<link rel="stylesheet" href="stylesheet1.css">
+<script>
+$(document).ready(function() {
+
+  $('.FB_reactions').facebookReactions({
+
+    //postUrl: "save.php"
+  });
+});
+</script>
+<style>
+<!-- demo css -->
+button.warning, a.btn.warning, input[type="submit"].warning {
+border: 1px solid #9C5E09;
+background: #FBA633;
+background: -moz-linear-gradient(top, #FBA633, #DC840E) no-repeat scroll 0 0 transparent;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FBA633), color-stop(1, #DC840E)) no-repeat scroll 0 0 transparent;
+border-image: initial;
+}
+button, a.btn, input[type="submit"] {
+-webkit-transition: -webkit-box-shadow 0.05s ease-out;
+display: inline-block;
+cursor: pointer;
+color: white;
+text-shadow: 0 -1px rgba(0, 0, 0, 0.45);
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;
+background: #009BB8;
+background: -moz-linear-gradient(top, #009BB8, #00778D) no-repeat scroll 0 0 transparent;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #009BB8), color-stop(1, #00778D)) no-repeat scroll 0 0 transparent;
+box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45) inset;
+-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45) inset;
+-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45) inset;
+border: 1px solid #004754;
+padding: 6px 14px;
+font-size: 14px;
+border-image: initial;
+}
+#bottomcr a{ color:#A2A2A2; font-size:11px; text-decoration:none}
+#bottom a {
+color: #900;
+font-size:12px;
+text-decoration: none;
+}
+#bottoms a,#bottoms {
+color:#C00;
+font-weight:bold;
+font-size:12px;
+}
+
+body, input, textarea {
+font: 14px/24px Helvetica, Arial, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; color: #444; font-family:Helvetica, Arial, sans-serif;  }
+.pkg{ float:left; margin-right:15px; }
+#outer { width: 750px; margin: 0 auto; margin-top: 10px; margin-bottom: 10px; background: #fff; padding: 10px; border: 10px solid #f2f2f2; }
+ pre code{
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+}
+ pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+}
+</style>
+</head>
 <body>
-<link rel="stylesheet" href="cssr/materialize.min.css">
-<script src="js1/jquery-2.1.1.min.js"></script>
-<script src="js1/materialize.min.js"></script>
 <nav>
     <div class="nav-wrapper black">
-      <div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <a href="#" class="brand-logo center">LNO2</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="home.html">Home</a></li>
         <li><a href="interestpage.html">Other Interests</a></li>
       </ul>
     </div>
   </nav>
   <div class="row"> 
-  <div class="card col s8 m8 l8 offset-l2">
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="large">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/1.jpg">
+      <img class="activator" src="images/1.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -27,12 +111,22 @@
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
     </div>
+     <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
   </div>
 
-  <div class="card col s8 m8 l8 offset-l2">
+
+
+  <div class="card col s3 m3 l3 offset-l1">
   <div card="medium">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/2.jpg">
+      <img class="activator" src="images/1.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -43,12 +137,20 @@
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
     </div>
+     <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
   </div>
 
-  <div class="card col s8 m8 l8 offset-l2">
+  <div class="card col s3 m3 l3 offset-l1">
   <div card="medium">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/1.jpg">
+      <img class="activator" src="images/1.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -59,13 +161,21 @@
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
   </div>
+     <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
   </div>
 
 
-  <div class="card col s8 m8 l8 offset-l2">
+  <div class="card col s3 m3 l3 offset-l1">
   <div card="medium">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/2.jpg">
+      <img class="activator" src="images/1.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
@@ -76,8 +186,203 @@
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
     </div>
     </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
   </div>
+
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
   </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+  <div class="card col s3 m3 l3 offset-l1">
+  <div card="medium">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/1.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is a link</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    </div>
+    </div>
+       <div style="" align="left">
+        
+        <a class="FB_reactions" data-reactions-type='horizontal' data-unique-id="1" data-emoji-class="">
+            <span style="">Like</span>
+        </a>
+        
+    </div>
+    <br>
+  </div>
+
+  </div>
+  
 
 <footer class="page-footer black">
           <div class="container">
