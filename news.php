@@ -51,6 +51,7 @@
             <div class="row">
                 <p class="grey-text text-lighten-4 center">Developed and Created by</p>
         <p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+		    <p class="grey-text text-lighten-4 center">News powered by <a href="newsapi.org">NEWSAPI</a>.</p>
             </div>
           </div>
           
