@@ -1,35 +1,56 @@
 <?php
-$link = mysqli_connect("localhost","root","")  or die("failed to connect to server !!");
-mysqli_select_db($link,"profile_info");
-if(isset($_POST['submit']))
-{
-$errorMessage = "";
-$firstname=$_POST['firstname'];
-$lastname=$_POST['lastname'];
-$dp=$_POST['dp'];
-$cover=$_POST['cover'];
-$gender=$_POST['gender'];
-$dob=$_POST['dob'];
-$currentcity=$_POST['currentcity'];
-$hometown=$_POST['hometown'];
-$school=$_POST['school'];
-$college=$_POST['college'];
-$telephone=$_POST['telephone'];
-$email=$_POST['email'];
-$description=$_POST['description'];
+	ob_start();
+	session_start();
+	include_once 'dbconnect.php';
+	if(isset($_POST['submit']))
+	{
+		$uname=$_COOKIE['userName'];
+		$errorMessage = "";
+		$firstname=$_POST['firstname'];
+		$lastname=$_POST['lastname'];
+		$dp=$_POST['dp'];
+		$cover=$_POST['cover'];
+		$gender=$_POST['gender'];
+		$dob=$_POST['dob'];
+		$currentcity=$_POST['currentcity'];
+		$hometown=$_POST['hometown'];
+		$school=$_POST['school'];
+		$college=$_POST['college'];
+		$telephone=$_POST['telephone'];
+		$email=$_POST['email'];
+		$description=$_POST['description'];
+		// Validation will be added here
  
-// Validation will be added here
- 
-if ($errorMessage != "" ) {
-echo "<p class='message'>" .$errorMessage. "</p>" ;
-}
-else{
-//Inserting record in table using INSERT query
-$insqDbtb="INSERT INTO `profile_info`.`members`
-(`firstname`, `lastname`,`dp`,`cover`, `gender`, `dob`, `currentcity`,
-`hometown`, `school`, `college`, `telephone`, `email`, `description`) VALUES ('$firstname', '$lastname','$dp','$cover', 
-'$gender', '$dob', '$currentcity', '$hometown', '$school', '$college', '$telephone', '$email', '$description')";
-mysqli_query($link,$insqDbtb) or die(mysqli_error($link));
+		if ($errorMessage != "" ) {
+			echo "<p class='message'>" .$errorMessage. "</p>" ;
+		}
+		else{
+			//Inserting record in table using INSERT query
+			$query="UPDATE members 
+					SET firstname='$firstname', lastname='$lastname', dp='$dp', cover='$cover', gender='$gender', dob='$dob', currentcity='$currentcity', hometown='$hometown', school='$school', college='$college', telephone='$telephone', email='$email', description='$description' 
+					WHERE userName='$uname'";
+			$res = mysql_query($query);
+			if ($res) {
+				$_COOKIE['userName']='$uname';
+				unset($errorMessage);
+				unset($firstname);
+				unset($lastname);
+				unset($dp);
+				unset($cover);
+				unset($gender);
+				unset($dob);
+				unset($currentcity);
+				unset($hometown);
+				unset($school);
+				unset($college);
+				unset($telephone);
+				unset($email);
+				unset($description);
+				header("Location: interestpage.html");
+			} else {
+				$errTyp = "danger";
+				$errMSG = "Something went wrong, try again later...";
+			}
 }
 }
 ?>
@@ -56,159 +77,158 @@ mysqli_query($link,$insqDbtb) or die(mysqli_error($link));
   
 <div class="row">
    <div class="col offset-s2">
-<h3>Person</h3>
-</div>
-    <form class="col s12" method="post">
-        <div class="input-field col s4 offset-s2">
-		<i class="material-icons prefix">account_circle</i>
-          <input id="firstname" type="text" class="validate" name="firstname">
-          <label for="firstname">First Name</label>
-        </div>
-        <div class="input-field col s4">
-          <input id="lastname" type="text" class="validate" name="lastname">
-          <label for="lastname">Last Name</label>
-        </div>
-      </div>
-  </div>
-  <div class="row">
-     <div class="col s4 offset-s2">
-     <h3>Profile Photo</h3>
-    <div class="file-field input-field">
-      <div class="black btn">
-        <span>Choose file</span>
-        <input type="file" id="dp" name="dp" class="validate">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
-    </div>
-    </div>
-    </div>
-
-<div class="row">
-     <div class="col s4 offset-s2">
-     <h3>Cover Photo</h3>
-    <div class="file-field input-field">
-      <div class="black btn">
-        <span>Choose file</span>
-        <input type="file" id="cover" name="cover" class="validate">
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
-    </div>
-    </div>
-    </div>
-  <div class="row">
-  <div class="col s4 offset-s2">
-  Gender
-  <div class="input-field">
-    <select class="browser-default"  name="gender">
-      <option value="" disabled selected>Choose your option</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-    </div>
-  </div>
-
- <div class="col s4">
-  <label for="dob">Date Of Birth</label>
-  <i class="material-icons prefix">today</i>
-  <input type="date" class="datepicker" name="dob">
-  </div>
-  </div>
-  <div class="row">
-  <div class="col offset-s2">
-<h3>Location</h3>
-</div>
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s4 offset-s2">
-          <i class="material-icons prefix">location_on</i>
-          <input id="icon_prefix" type="text" class="validate" name="currentcity">
-          <label for="currentcity">Current city</label>
-        </div>
-        <div class="input-field col s4">
-          <i class="material-icons prefix">store</i>
-          <input id="icon_telephone" type="tel" class="validate" name="hometown">
-          <label for="hometown">Home Town</label>
-        </div>
-      </div>
-    </div>
-  </div>
-   <div class="row">
-   <div class="col offset-s2">
-      <h3>Education and Work</h3>
-   </div>
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s3 offset-s2">
-          <i class="material-icons prefix">class</i>
-          <input id="school" type="text" class="validate" name="school">
-          <label for="school">School</label>
-        </div>
-        <div class="input-field col s3">
-          <i class="material-icons prefix">class</i>
-          <input id="college" type="tel" class="validate" name="college">
-          <label for="college">College</label>
-        </div>
-		<div class="input-field col s3">
-          <i class="material-icons prefix">work</i>
-          <input id="work" type="tel" class="validate" name="work">
-          <label for="work">Work</label>
-        </div>
-      </div>
-    </div>
+		<h3>Person</h3>
 	</div>
-  <div class="row">
-  <div class="col offset-s2">
-      <h3>Contact Info</h3>
-  </div>
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s4 offset-s2">
-		  <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate" name="email">
-          <label for="email" data-error="wrong" data-success="right">Email</label>
-        </div>
-        <div class="input-field col s4">
-          <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate" name="telephone">
-          <label for="telephone">Telephone</label>
-        </div>
-      </div>
-    </div>
-	<div class="row">
-	<div class="col offset-s2">
-<h3>Describe Yourself!</h3>
 </div>
-    <div class="col s12">
-      <div class="row">
-        <div class="input-field col s8 offset-s2">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea id="decription" class="materialize-textarea" name="description"></textarea>
-          <label for="description">Write Here!</label>
-        </div>
-      </div>
-    </div>
-  </div>
-	<div class="row">
-				<button class="btn large waves-effect waves-light col s2 offset-s5" id="btn-login" type="submit" name="submit">Submit
-				<i class="material-icons right">send</i>
-				</button>
+<div class="row">
+    <form class="col s12" method="post">
+        <div class="row">
+			<div class="input-field col s4 offset-s2">
+				<i class="material-icons prefix">account_circle</i>
+				<input id="firstname" type="text" class="validate" name="firstname">
+				<label for="firstname">First Name</label>
 			</div>
-  </div>  
-  </form>
-  
- <footer class="page-footer black">
-          <div class="container">
-            <div class="row">
-                <p class="grey-text text-lighten-4 center">Developed and Created by</p>
-        <p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
-            </div>
-          </div>
-          
-        </footer>
+			<div class="input-field col s4">
+				<input id="lastname" type="text" class="validate" name="lastname">
+				<label for="lastname">Last Name</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h3>Profile Photo</h3>
+				<div class="file-field input-field">
+					<div class="black btn">
+						<span>Choose file</span>
+						<input type="file" id="dp" name="dp" class="validate">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h3>Cover Photo</h3>
+				<div class="file-field input-field">
+					<div class="black btn">
+						<span>Choose file</span>
+						<input type="file" id="cover" name="cover" class="validate">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4 offset-s2">
+				Gender
+				<div class="input-field">
+					<select class="browser-default"  name="gender">
+						<option value="" disabled selected>Choose your option</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+			</div>
+			<div class="col s4">
+				<label for="dob">Date Of Birth</label>
+				<i class="material-icons prefix">today</i>
+				<input type="date" class="datepicker" name="dob">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col offset-s2">
+				<h3>Location</h3>
+			</div>
+			<div class="col s12">
+				<div class="row">
+					<div class="input-field col s4 offset-s2">
+						<i class="material-icons prefix">location_on</i>
+						<input id="icon_prefix" type="text" class="validate" name="currentcity">
+						<label for="currentcity">Current city</label>
+					</div>
+					<div class="input-field col s4">
+						<i class="material-icons prefix">store</i>
+						<input id="icon_telephone" type="tel" class="validate" name="hometown">
+						<label for="hometown">Home Town</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col offset-s2">
+				<h3>Education and Work</h3>
+			</div>
+			<div class="col s12">
+				<div class="row">
+					<div class="input-field col s3 offset-s2">
+						<i class="material-icons prefix">class</i>
+						<input id="school" type="text" class="validate" name="school">
+						<label for="school">School</label>
+					</div>
+					<div class="input-field col s3">
+						<i class="material-icons prefix">class</i>
+						<input id="college" type="tel" class="validate" name="college">
+						<label for="college">College</label>
+					</div>
+					<div class="input-field col s3">
+						<i class="material-icons prefix">work</i>
+						<input id="work" type="tel" class="validate" name="work">
+						<label for="work">Work</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col offset-s2">
+				<h3>Contact Info</h3>
+			</div>
+			<div class="col s12">
+				<div class="row">
+					<div class="input-field col s4 offset-s2">
+						<i class="material-icons prefix">email</i>
+						<input id="email" type="email" class="validate" name="email">
+						<label for="email" data-error="wrong" data-success="right">Email</label>
+					</div>
+					<div class="input-field col s4">
+						<i class="material-icons prefix">phone</i>
+						<input id="icon_telephone" type="tel" class="validate" name="telephone">
+						<label for="telephone">Telephone</label>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col offset-s2">
+				<h3>Describe Yourself!</h3>
+			</div>
+			<div class="col s12">
+				<div class="row">
+					<div class="input-field col s8 offset-s2">
+						<i class="material-icons prefix">mode_edit</i>
+						<textarea id="decription" class="materialize-textarea" name="description"></textarea>
+						<label for="description">Write Here!</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<button class="btn large waves-effect waves-light col s2 offset-s5" id="btn-login" type="submit" name="submit">Submit
+				<i class="material-icons right">send</i>
+			</button>
+		</div>
+	</form>
+</div>
+<footer class="page-footer black">
+    <div class="container">
+        <div class="row">
+            <p class="grey-text text-lighten-4 center">Developed and Created by</p>
+			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
 <script>
