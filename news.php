@@ -18,30 +18,33 @@
       </ul>
     </div>
   </nav>
-  <div id="results" data-url="<?php if (!empty($url)) echo $url ?>">
+  <div id="results" class="container"data-url="<?php if (!empty($url)) echo $url ?>">
   <?php
 	if(!empty($news_array)){
-			$countn=count($news_array->articles);
-			
-			echo'<div class="row">';
-			foreach($news_array->articles as $item){
+		$i=0;
+		foreach($news_array->articles as $item){
 			$item->title=filter_var($item->title,FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
-			$item->description=filter_var($item->description,FILTER_SANITIZE_STRING,FILTER_FLAG_ENCODE_LOW);
-			echo 
-			' 
-				<div class="card col s3 m3 l3 offset-s1 offset-m1 offset-l1">
-					<div card="medium">
-						<div class="card-image waves-effect waves-block waves-light">
-							<img class="activator" src='.$item->urlToImage.'>
+			$item->description=filter_var($item->description,FILTER_SANITIZE_STRING,FILTER_FLAG_STRIP_HIGH);
+			if($i%2==0){
+				echo'<div class="row">';
+			}
+				echo 
+					'<div class="card col s6 m6 l6">
+						<div card="medium">
+							<div class="card-image waves-effect waves-block waves-light">
+								<img class="activator" src='.$item->urlToImage.'>
+							</div>
+							<div class="card-content">
+								<span class="card-title activator grey-text text-darken-4">'.$item->title.'<i class="material-icons right">more_vert</i></span>
+								<p>'.$item->description.'<a href="'.$item->url.'">...</a></p>
+							</div>
 						</div>
-						<div class="card-content">
-							<span class="card-title activator grey-text text-darken-4">'.$item->title.'<i class="material-icons right">more_vert</i></span>
-							<p>'.$item->description.'<a href="'.$item->url.'">...</a></p>
-						</div>
-					</div>
-				</div>';
+					</div>';
+			$i=$i+1;
+			if($i%2==0){
+				echo'</div>';
+			}
 		}
-		echo '</div>';
 	}
 		
   ?>
