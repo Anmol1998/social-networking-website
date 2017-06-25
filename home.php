@@ -89,16 +89,23 @@
 
 			$query = "INSERT INTO users(Name,userEmail,userName,userPSW) VALUES('$name','$email','$uname','$password')";
 			$res = mysql_query($query);
-			echo "yes";
 			if ($res) {
 				$errTyp = "success";
 				$errMSG = "Successfully registered, you may login now";
-				unset($name);
-				unset($email);
-				unset($uname);
-				unset($psw);
-				unset($repsw);
-				header("Location: home.php");
+				$query = "INSERT INTO members(userName) VALUES('$name')";
+				$res = mysql_query($query);
+				if($res){
+					$_COOKIE['userName']='$uname';
+					unset($name);
+					unset($email);
+					unset($uname);
+					unset($psw);
+					unset($repsw);
+					header("Location: form_lno2.php");
+				}else{
+					$errTyp = "danger";
+					$errMSG = "Something went wrong, try again later...";
+				}
 			} else {
 				$errTyp = "danger";
 				$errMSG = "Something went wrong, try again later...";
@@ -155,6 +162,7 @@
 			// if uname/pass correct it returns must be 1 row
 			if( $count == 1 && strcmp($row['userPSW'],$password)==0) {
 				$_SESSION['user'] = $row['userName'];
+				$_COOKIE['userName']='$uname';
 				header("Location: interestpage.html");
 			} else {
 				$errMSG ="Invalid Credentials";
