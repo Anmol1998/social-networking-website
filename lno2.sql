@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2017 at 03:26 PM
+-- Generation Time: Jun 25, 2017 at 11:56 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -23,6 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `members`
+--
+
+CREATE TABLE IF NOT EXISTS `members` (
+  `userName` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `errorMessage` mediumtext NOT NULL,
+  `firstname` varchar(10000) NOT NULL,
+  `lastname` varchar(10000) NOT NULL,
+  `dp` longblob NOT NULL,
+  `cover` longblob NOT NULL,
+  `gender` varchar(10000) NOT NULL,
+  `dob` varchar(1000) NOT NULL,
+  `currentcity` varchar(10000) NOT NULL,
+  `hometown` varchar(10000) NOT NULL,
+  `school` varchar(10000) NOT NULL,
+  `college` varchar(1000) NOT NULL,
+  `telephone` varchar(1000) NOT NULL,
+  `email` text NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -35,14 +60,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`userName`),
   UNIQUE KEY `userEmail` (`userEmail`),
   KEY `SNum` (`SNum`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`SNum`, `Name`, `userEmail`, `userName`, `userPSW`) VALUES
-(3, 'Rakshit', 'rakshit@vit.ac.in', 'rj1234', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=6 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
