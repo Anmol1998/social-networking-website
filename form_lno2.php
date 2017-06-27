@@ -2,9 +2,11 @@
 	ob_start();
 	session_start();
 	include_once 'dbconnect.php';
+	$uname=$_SESSION['userName'];
+	echo $uname;	
 	if(isset($_POST['submit']))
 	{
-		$uname=$_COOKIE['userName'];
+		$uname=$_SESSION['userName'];
 		$errorMessage = "";
 		$firstname=$_POST['firstname'];
 		$lastname=$_POST['lastname'];
@@ -31,7 +33,7 @@
 					WHERE userName='$uname'";
 			$res = mysql_query($query);
 			if ($res) {
-				$_COOKIE['userName']='$uname';
+				$_SESSION['userName']=$uname;
 				unset($errorMessage);
 				unset($firstname);
 				unset($lastname);
@@ -46,6 +48,7 @@
 				unset($telephone);
 				unset($email);
 				unset($description);
+				
 				header("Location: interestpage.html");
 			} else {
 				$errTyp = "danger";

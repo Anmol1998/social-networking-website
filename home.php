@@ -92,10 +92,10 @@
 			if ($res) {
 				$errTyp = "success";
 				$errMSG = "Successfully registered, you may login now";
-				$query = "INSERT INTO members(userName) VALUES('$name')";
+				$query = "INSERT INTO members(userName) VALUES('$uname')";
 				$res = mysql_query($query);
 				if($res){
-					$_COOKIE['userName']='$uname';
+					$_SESSION['userName']=$uname;
 					unset($name);
 					unset($email);
 					unset($uname);
@@ -161,8 +161,7 @@
 			$count = mysql_num_rows($res); 
 			// if uname/pass correct it returns must be 1 row
 			if( $count == 1 && strcmp($row['userPSW'],$password)==0) {
-				$_SESSION['user'] = $row['userName'];
-				$_COOKIE['userName']='$uname';
+				$_SESSION['userName']=$uname;
 				header("Location: interestpage.html");
 			} else {
 				$errMSG ="Invalid Credentials";
@@ -402,4 +401,3 @@ $(document).ready(function(){
   });
 </script>
 </html>
-<?php ob_end_flush(); ?>
