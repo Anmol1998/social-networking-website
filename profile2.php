@@ -57,7 +57,7 @@ if (!$conn) {
 		<center><a class="lightbox"><img src="images/pro.jpeg" width="70%" height="50%"/></a></center> 
 			<div class="row">
 			<div class="card small col l2 m2 s2 offset-l5 m5 s5" style="margin-top:-20px">
-				<img src="images/pro.jpeg" style="height:100%; width=100%"/>
+				<img src="images/pro.jpeg" style="height:100%; width:100%"/>
 			</div>
 			</div>
 			<center><a class="waves-effect waves-light btn"><?php echo $disp_firstname.' '.$disp_lastname; ?><!--Anmol Agrawal--></a></center>
