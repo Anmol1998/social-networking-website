@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2017 at 11:56 AM
+-- Generation Time: Jun 29, 2017 at 10:08 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,61 @@ SET time_zone = "+00:00";
 --
 -- Database: `lno2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friends`
+--
+
+CREATE TABLE IF NOT EXISTS `friends` (
+  `userA` varchar(30) COLLATE utf8_bin NOT NULL,
+  `userB` varchar(30) COLLATE utf8_bin NOT NULL,
+  `type` int(5) NOT NULL,
+  `actionUser` varchar(30) COLLATE utf8_bin NOT NULL,
+  UNIQUE KEY `userA` (`userA`,`userB`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `friends`
+--
+
+INSERT INTO `friends` (`userA`, `userB`, `type`, `actionUser`) VALUES
+('abhinav', 'aditya', 1, 'aditya'),
+('abhinav', 'rakshit', 1, 'rakshit'),
+('abhinav', 'sonal', 1, 'sonal'),
+('aman', 'kavya', 2, 'kavya'),
+('astha', 'rakshit', 1, 'rakshit'),
+('astha', 'sonal', 1, 'sonal'),
+('jai', 'radhika', 1, 'radhika'),
+('kavya', 'yash', 0, 'kavya'),
+('radhika', 'sonali', 1, 'sonali'),
+('rakshit', 'aman', 1, 'aman'),
+('rakshit', 'astha', 1, 'astha'),
+('rakshit', 'kavya', 1, 'kavya'),
+('rakshit', 'radhika', 1, 'radhika'),
+('rakshit', 'ridhanshi', 1, 'ridhanshi'),
+('ridhanshi', 'ishita', 1, 'ishita'),
+('ridhanshi', 'khushi', 1, 'khushi'),
+('shashank', 'aditya', 1, 'aditya'),
+('shashank', 'rakshit', 1, 'rakshit'),
+('shashank', 'shriya', 1, 'shriya'),
+('tanmay', 'rakshit', 1, 'rakshit'),
+('tarun', 'rakshit', 1, 'rakshit'),
+('vaibhav', 'aman', 1, 'aman');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groups`
+--
+
+CREATE TABLE IF NOT EXISTS `groups` (
+  `group_id` varchar(10) NOT NULL,
+  `group_name` varchar(255) NOT NULL,
+  `group_members` longtext NOT NULL,
+  `group_admin` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -45,6 +100,14 @@ CREATE TABLE IF NOT EXISTS `members` (
   PRIMARY KEY (`userName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`userName`, `errorMessage`, `firstname`, `lastname`, `dp`, `cover`, `gender`, `dob`, `currentcity`, `hometown`, `school`, `college`, `telephone`, `email`, `description`) VALUES
+('chirag', '', 'Chirag', 'Garg', '', '', 'male', '', 'delhi', 'delhi', '', '', '', 'chirag@vit.com', ''),
+('rakshit', '', 'Rakshit', 'Jain', '', '', 'male', '', 'delhi', 'delhi', '', '', '9313017723', 'rakshit@vit.com', '');
+
 -- --------------------------------------------------------
 
 --
@@ -60,7 +123,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`userName`),
   UNIQUE KEY `userEmail` (`userEmail`),
   KEY `SNum` (`SNum`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`SNum`, `Name`, `userEmail`, `userName`, `userPSW`) VALUES
+(1, 'Rakshit Jain', 'rkashit@vit.com', 'rakshit', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
