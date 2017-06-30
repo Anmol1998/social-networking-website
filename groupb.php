@@ -33,7 +33,7 @@
 					$res=mysql_query($query);
 				}
 			}
-			return 'Group created Successfully';
+			header('Location: groups.php');
 		}else{
 			return 'Something went Wrong';
 		}
@@ -152,5 +152,10 @@
 			return 'Something went Wrong.';
 		}
 	}
-	echo group_leave('1ed8c4681b703fe4','aman');
+	function group_show($uname){
+		$query="SELECT groups FROM members WHERE userName='$uname'";
+		$res=mysql_query($query);
+		$row=mysql_fetch_assoc($res);
+		return array_diff(explode(';',$row['groups']),array(''));
+	}
 ?>

@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include_once 'dbconnect.php';
 	// type=0 -> friend request sent; type=1 -> friend request accepted; type=2 ->blocked
 	function frndlist($uname){
@@ -84,13 +83,13 @@
 	//uname=the action user;  unameact=the user action taken on;  
 	//$act= is an integer referncing which type of action taken (1->accept, 2->block, 3->reject);
 	function friendrequest_action($uname, $unameact, $act){
-		if($act==1 or $act==2){
+		if($act==1 || $act==2){
 			$query="UPDATE friends SET type='$act', actionUser='$uname' WHERE userB='$uname' AND userA='$unameact'";
 			$res=mysql_query($query);
 		}else if($act==3){
 			$query="DELETE FROM friends WHERE userB='$uname' AND userA='$unameact'";
 			$res=mysql_query($query);
 		}
+		header("Location: profile.php");
 	}
-	friendrequest_action('kavya','rakshit',1);
 ?>
