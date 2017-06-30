@@ -5,7 +5,7 @@
 	
 	if(isset($_POST['view'])){
 		$_SESSION['grpid']=$_POST['grp_id'];
-		header('Location: group_');
+		header('Location: groupdetails.php');
 	}
 ?>
 <html>
