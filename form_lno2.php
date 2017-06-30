@@ -10,8 +10,8 @@
 		$errorMessage = "";
 		$firstname=$_POST['firstname'];
 		$lastname=$_POST['lastname'];
-		$dp=$_POST['dp'];
-		$cover=$_POST['cover'];
+		$dp=addslashes(file_get_contents($_FILES['dp']['tmp_name']));
+		$cover=addslashes(file_get_contents($_FILES["cover"]["tmp_name"]));
 		$gender=$_POST['gender'];
 		$dob=$_POST['dob'];
 		$currentcity=$_POST['currentcity'];
@@ -65,7 +65,7 @@
 <link rel="stylesheet" href="cssr/materialize.css">
 <!--Initialising javascript folders-->
 <script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js1/materialize2.js"></script>
+<script type="text/javascript" src="js1/materialize.js"></script>
 <!--Initialising icon font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
@@ -84,7 +84,7 @@
 	</div>
 </div>
 <div class="row">
-    <form class="col s12" method="post">
+    <form class="col s12" method="post" enctype="multipart/form-data">
         <div class="row">
 			<div class="input-field col s4 offset-s2">
 				<i class="material-icons prefix">account_circle</i>

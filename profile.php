@@ -10,7 +10,7 @@
 	$count = mysql_num_rows($res);
 	if ($count==1) {
 		// output data of each row
-		$row = mysql_fetch_assoc($res);
+		$row = mysql_fetch_array($res);
 		$disp_firstname=$row["firstname"];
 		$disp_lastname=$row["lastname"];
 		$disp_gender=$row["gender"];
@@ -31,8 +31,6 @@
 		<title>My Profile</title>
 	</head>
 	<link rel="stylesheet" href="cssr/materialize.css">
-	<link rel="stylesheet" href="cssr/sidenav.css">
-	<link rel="stylesheet" href="cssr/materialize.min.css">
 	<script src="js1/jquery-2.1.1.min.js"></script>
 	<script src="js1/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,25 +45,20 @@
 				</ul>
 			</div>
 		</nav>
-		<!-- Container element -->
 
-		<!--background-->
-		<!--
-			<div class="bg-img"></div>
-		-->
-		<!--Profile photo-->
 
-		<a class="lightbox" href="#dog"><img src="images/pro.jpeg"/></a> 
-		<div class="lightbox-target" id="dog"><img src="images/pro.jpeg"/><a class="lightbox-close" href="#"></a></div>
-		<!--Upload Photo-->
-		<div class="row">
-			<a class="waves-effect waves-light btn red lighten-1"><?php echo $disp_firstname.' '.$disp_lastname; ?><!--Sakshi Aggarwal--></a>
-			<form action="upload.php" method="post" enctype="multipart/form-data">
-				Select image to upload:
-					<input type="file" name="fileToUpload" id="fileToUpload">
-					<input type="submit" value="Upload Image" name="submit">
-			</form>
-		</div>
+
+
+		<a class="lightbox large"> <div style="height: 100%; width: 100%;"><? echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'";/>'?> </div></a>
+			<div class="row">
+			<br>
+			<div class="card small center" style="margin-top:-20px">
+			<div>
+				<? echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'";/>'?>
+				</div>
+			</div>
+			</div>
+			<center><a class="waves-effect waves-light btn"><?php echo $disp_firstname.' '.$disp_lastname; ?></a></center>
 		<!--About me-->
 		<div class="row container">
 			<div id="about me" class="section scrollspy">
