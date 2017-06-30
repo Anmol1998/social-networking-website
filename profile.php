@@ -3,6 +3,7 @@
 	ob_start();
 	session_start();
 	include_once 'dbconnect.php';
+	include_once 'frnd.php';
 
 	$uname=$_SESSION['userName'];
 	$query = "SELECT * FROM members WHERE userName='$uname'";
@@ -25,7 +26,10 @@
 		$disp_email=$row["email"];
 		$disp_description=$row["description"];
 	}
-?>
+
+	// type=0 -> friend request sent; type=1 -> friend request accepted; type=2 ->blocked
+	$frnds=frndlist($uname);
+	?>
 <html>
 	<head>
 		<title>My Profile</title>
@@ -81,11 +85,12 @@
 						</li>
 						<li>
 							<div class="collapsible-header"><i class="material-icons">star</i><b>Interests</b></div>
-							<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+							<div class="collapsible-body"><span></span></div>
 						</li>
 						<li>
 							<div class="collapsible-header"><i class="material-icons">perm_identity</i><b>Friends</b></div>
-							<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+							<div class="collapsible-body"><h5><?php foreach ($frnds as $value)
+							echo $value."<br>" ?></h5></div>
 						</li>
 					</ul>
 				</div>
