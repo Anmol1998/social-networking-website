@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Group Details</title>
+	</head>
+	<link rel="stylesheet" href="cssr/materialize.css">
+	<script src="js1/jquery-2.1.1.min.js"></script>
+	<script src="js1/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<body>
+		<nav>
+			<div class="nav-wrapper black">
+				<div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="home.html">Home</a></li>
+					<li><a href="interestpage.html">Other Interests</a></li>
+				</ul>
+			</div>
+		</nav>
+		<br>
+		<div class="center">
+		<h3>Group Name:-</h3>
+		<br>
+		<h3>Members</h3>
+		</div>
+
+		<div class="">
+		<div class="row container">
+		<div class="col l4 offset-l4">
+		<ul class="collapsible" data-collapsible="expandable">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">group_work</i>Member details</div>
+      <div class="collapsible-body"><span></span></div>
+    </li>
+  </ul>
+  </div>
+  </div>
+
+		</div>
+
+		<div class="row center">
+		<a class="waves-effect waves-light black  btn">Delete Group</a>
+    	<a class="waves-effect waves-light black  btn">Add Member</a>
+    	<a class="waves-effect waves-light black  btn">Remove Member</a>
+    	<a class="waves-effect waves-light black  btn">Leave Group</a>
+
+    	</div>
+		</body>
+		</html>
+
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+  </script>
+<script>
+
+  $('.collapsible').collapsible({
+    accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
+    onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
+  });
+</script>
+
+
+
+
