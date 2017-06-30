@@ -39,7 +39,7 @@
 		}
 	}
 	function group_addmember($gid,$uname,$gmember){
-		//gid=group id; uname=user adding members; $gmember=members added;
+		//gid=group id; uname=user adding members; $gmember=array of members added;
 		$query="SELECT * FROM groups WHERE group_id='$gid'";
 		$res=mysql_query($query);
 		if(mysql_num_rows($res)==1){
@@ -65,7 +65,7 @@
 							$res=mysql_query($query);
 						}
 					}
-					return 'Group modified Successfully';
+					header('Location: groupdetails.php');
 				}else{
 					return 'Something went Wrong';
 				}
@@ -99,7 +99,7 @@
 				$query="DELETE FROM groups WHERE group_id='$gid'";
 				$res=mysql_query($query);
 				if($res){
-					return 'Group deleted Successfully';
+					header('Location: groups.php');
 				}else{
 					return "Something Went Wrong. Please Try Again Later...";
 				}
@@ -135,7 +135,7 @@
 						$query="UPDATE members SET groups='$grps' WHERE userName='$uname'";
 						$res=mysql_query($query);
 						if($res){
-							return 'Group Left Successfully';
+							header('Location: groups.php');
 						}else{
 							return 'Something went Wrong';
 						}
@@ -151,11 +151,61 @@
 		}else{
 			return 'Something went Wrong.';
 		}
+	}	
+	function group_remove($gid,$uname,$gmember){
+		//$gid=group id; $uname=admin user; $gmember= array of members to remove;
+		$query="SELECT * FROM groups WHERE group_id='$gid'";
+		$res=mysql_query($query);
+		if(mysql_num_rows($res)==1){
+			$row=mysql_fetch_assoc($res);
+			if($row['group_admin']== $uname){
+				$gmembers=$row['group_members'];
+				$gmembers=explode(';', $gmembers);
+				$gmembers=array_diff($gmembers, $gmember);
+				$gmembers=implode(';',$gmembers);
+				$query="UPDATE groups SET group_members='$gmembers' WHERE group_id='$gid'";
+				$res=mysql_query($query);
+				if($res){
+					foreach($gmember as $fr){
+						$query="SELECT groups FROM members WHERE userName='$fr'";
+						$res=mysql_query($query);
+						if($res){
+							$row=mysql_fetch_assoc($res);
+							$grps=$row['groups'];
+							$grps=explode(';',$grps);
+							$grps=array_diff($grps, array($gid));
+							$grps=implode(';',$grps);
+							$query="UPDATE members SET groups='$grps' WHERE userName='$fr'";
+							$res=mysql_query($query);
+							if($res){
+								header('Location: groupdetails.php');
+							}else{
+								return 'Something went Wrong';
+							}
+						}else{
+							return 'Something went Wrong..';
+						}
+					}
+				}else{
+					return "Something went Wrong";
+				}
+			}else{
+				return 'You are not Admin.';
+			}
+		}else{
+			return 'Something went Wrong.';
+		}
 	}
-	function group_show($uname){
+	function group_show($uname){ //show groups of a member
 		$query="SELECT groups FROM members WHERE userName='$uname'";
 		$res=mysql_query($query);
 		$row=mysql_fetch_assoc($res);
 		return array_diff(explode(';',$row['groups']),array(''));
+	}
+	function show_members($gid){
+		$query="SELECT group_members FROM groups WHERE group_id='$gid'";
+		$res=mysql_query($query);
+		$result=mysql_fetch_assoc($res);
+		return explode(';',$result['group_members']);
 	}
 ?>
