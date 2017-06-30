@@ -26,9 +26,7 @@
 		$disp_email=$row["email"];
 		$disp_description=$row["description"];
 	}
-
 	// type=0 -> friend request sent; type=1 -> friend request accepted; type=2 ->blocked
-	$frnds=frndlist($uname);
 	?>
 <html>
 	<head>
@@ -53,25 +51,42 @@
 
 <div id="req1" class="modal">
   <div class="modal-content center black-text">
-      <h5>Name1</h5>
-    <div class="row">
-    <a class="waves-effect waves-light black col s2 offset-s2 btn">Accept</a>
-    <a class="waves-effect waves-light black col s2 offset-s1 btn">Reject</a>
-    <a class="waves-effect waves-light black col s2 offset-s1 btn">Block</a>
-    </div>
-    <h5>Name2</h5>
-     <div class="row">
-    <a class="waves-effect waves-light black col s2 offset-s2 btn">Accept</a>
-    <a class="waves-effect waves-light black col s2 offset-s1 btn">Reject</a>
-    <a class="waves-effect waves-light black col s2 offset-s1 btn">Block</a>
-    </div>
+  <?php
+		if(isset($_POST['accept'])){
+			friendrequest_action($uname,$_POST['username'],1);
+		}else if(isset($_POST['block'])){
+			friendrequest_action($uname,$_POST['username'],2);
+		}else if(isset($_POST['reject'])){
+			friendrequest_action($uname,$_POST['username'],3);
+		}
+		$frnd_req=friendrequest_show($uname);
+		if(count($frnd_req)>0){
+		foreach($frnd_req as $fr){
+			$query="SELECT firstname, lastname FROM members WHERE userName='$fr'";
+			$res=mysql_query($query);
+			$row=mysql_fetch_assoc($res);
+			echo '<div class="row grey lighten-3">';
+			echo '<h5>'.$row['firstname'].' '.$row['lastname'].'</h5>'; ?>
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+					<div class="input-field">
+						<input id="username" type="hidden" class="validate" name="username" value="<?php echo $fr; ?>">
+					</div>
+					<div class="row">
+						<button class="btn waves-effect waves-light black col s2 offset-s1" id="btn-accept" type="submit" name="accept">Accept</button>
+						<button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-accept" type="submit" name="reject">Reject</button>
+						<button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-block" type="submit" name="block">Block</button>
+					</div>
+				</form>
+			</div>
+		<?php }
+		}else{
+			echo '<h5>No Pending Requests</h5>';
+		} ?>
     </div>
     <div class="modal-footer">
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
   </div>
-
-
 
 		<a class="lightbox large"> <div style="height: 100%; width: 100%;"><? echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'";/>'?> </div></a>
 			<div class="row">
@@ -109,8 +124,18 @@
 						</li>
 						<li>
 							<div class="collapsible-header"><i class="material-icons">perm_identity</i><b>Friends</b></div>
-							<div class="collapsible-body"><h5><?php foreach ($frnds as $value)
-							echo $value."<br>" ?></h5></div>
+							<div class="collapsible-body"><h5>
+								<?php 
+									$frnds=frndlist($uname);
+									foreach ($frnds as $value){
+										/*$query="SELECT firstname,lastname FROM members WHERE userName='$value'";
+										$res=mysql_query($query);
+										$value=mysql_fetch_assoc($res);
+										echo $value['firstname'].' '.$value['lastname']."<br>";*/
+										echo $value.'<br>';										
+									} 
+								?>
+							</h5></div>
 						</li>
 					</ul>
 				</div>
