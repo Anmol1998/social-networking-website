@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2017 at 10:08 PM
+-- Generation Time: Jun 30, 2017 at 08:19 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -46,8 +46,9 @@ INSERT INTO `friends` (`userA`, `userB`, `type`, `actionUser`) VALUES
 ('astha', 'rakshit', 1, 'rakshit'),
 ('astha', 'sonal', 1, 'sonal'),
 ('jai', 'radhika', 1, 'radhika'),
-('kavya', 'yash', 0, 'kavya'),
+('kavya', 'yash', 1, 'yash'),
 ('radhika', 'sonali', 1, 'sonali'),
+('rajat', 'kavya', 1, 'kavya'),
 ('rakshit', 'aman', 1, 'aman'),
 ('rakshit', 'astha', 1, 'astha'),
 ('rakshit', 'kavya', 1, 'kavya'),
@@ -58,6 +59,8 @@ INSERT INTO `friends` (`userA`, `userB`, `type`, `actionUser`) VALUES
 ('shashank', 'aditya', 1, 'aditya'),
 ('shashank', 'rakshit', 1, 'rakshit'),
 ('shashank', 'shriya', 1, 'shriya'),
+('shruti', 'kavya', 1, 'kavya'),
+('snehil', 'kavya', 1, 'kavya'),
 ('tanmay', 'rakshit', 1, 'rakshit'),
 ('tarun', 'rakshit', 1, 'rakshit'),
 ('vaibhav', 'aman', 1, 'aman');
@@ -69,11 +72,20 @@ INSERT INTO `friends` (`userA`, `userB`, `type`, `actionUser`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
-  `group_id` varchar(10) NOT NULL,
-  `group_name` varchar(255) NOT NULL,
-  `group_members` longtext NOT NULL,
-  `group_admin` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `group_id` varchar(17) COLLATE utf8_bin NOT NULL,
+  `group_name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `group_members` longtext COLLATE utf8_bin NOT NULL,
+  `group_admin` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`group_id`, `group_name`, `group_members`, `group_admin`) VALUES
+('1ed8c4681b703fe4', 'rj ki tolli', 'chirag;rakshit', 'rakshit'),
+('836692d972d916a9', 'chirag', 'aman;chirag;rakshit', 'chirag');
 
 -- --------------------------------------------------------
 
@@ -97,6 +109,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `telephone` varchar(1000) NOT NULL,
   `email` text NOT NULL,
   `description` text NOT NULL,
+  `groups` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`userName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -104,9 +117,10 @@ CREATE TABLE IF NOT EXISTS `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`userName`, `errorMessage`, `firstname`, `lastname`, `dp`, `cover`, `gender`, `dob`, `currentcity`, `hometown`, `school`, `college`, `telephone`, `email`, `description`) VALUES
-('chirag', '', 'Chirag', 'Garg', '', '', 'male', '', 'delhi', 'delhi', '', '', '', 'chirag@vit.com', ''),
-('rakshit', '', 'Rakshit', 'Jain', '', '', 'male', '', 'delhi', 'delhi', '', '', '9313017723', 'rakshit@vit.com', '');
+INSERT INTO `members` (`userName`, `errorMessage`, `firstname`, `lastname`, `dp`, `cover`, `gender`, `dob`, `currentcity`, `hometown`, `school`, `college`, `telephone`, `email`, `description`, `groups`) VALUES
+('aman', '', 'Aman', 'Singh', '', '', 'male', '', '', 'kanpur', '', '', '', '', '', ''),
+('chirag', '', 'Chirag', 'Garg', '', '', 'male', '', 'delhi', 'delhi', '', '', '', 'chirag@vit.com', '', ';1ed8c4681b703fe4'),
+('rakshit', '', 'Rakshit', 'Jain', '', '', 'male', '', 'delhi', 'delhi', '', '', '9313017723', 'rakshit@vit.com', '', ';1ed8c4681b703fe4');
 
 -- --------------------------------------------------------
 
