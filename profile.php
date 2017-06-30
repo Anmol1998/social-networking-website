@@ -44,12 +44,32 @@
 			<div class="nav-wrapper black">
 				<div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a class="modal-trigger" href="#req1">Friend Requests</a></li>
 					<li><a href="home.html">Home</a></li>
 					<li><a href="interestpage.html">Other Interests</a></li>
 				</ul>
 			</div>
 		</nav>
 
+<div id="req1" class="modal">
+  <div class="modal-content center black-text">
+      <h5>Name1</h5>
+    <div class="row">
+    <a class="waves-effect waves-light black col s2 offset-s2 btn">Accept</a>
+    <a class="waves-effect waves-light black col s2 offset-s1 btn">Reject</a>
+    <a class="waves-effect waves-light black col s2 offset-s1 btn">Block</a>
+    </div>
+    <h5>Name2</h5>
+     <div class="row">
+    <a class="waves-effect waves-light black col s2 offset-s2 btn">Accept</a>
+    <a class="waves-effect waves-light black col s2 offset-s1 btn">Reject</a>
+    <a class="waves-effect waves-light black col s2 offset-s1 btn">Block</a>
+    </div>
+    </div>
+    <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+  </div>
 
 
 
@@ -171,6 +191,15 @@ $(document).ready(function(){
     onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
   });
 </script>
+
+
+<script>
+$(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+</script>
+
+
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
