@@ -1,20 +1,23 @@
 <?php
-session_start();
-include_once 'dbconnect.php';
-include_once 'groupb.php';
-
-$uname=$_SESSION['userName'];
-$group1=group_show($uname);
-$gs=array();
-foreach ($group1 as $fr) {
-	# code...
-	$query="SELECT group_name FROM groups WHERE group_id='$fr'";
-	$res=mysql_query($query);
-	$qtemp=mysql_fetch_assoc($res);
-	while($row=mysql_fetch_assoc($res)){
-				array_push($gs,$row['group_name']);
-			}
+	session_start();
+	include_once 'dbconnect.php';
+	include_once 'groupb.php';
+	include_once 'postb.php';
+	$uname=$_SESSION['userName'];
+	$grps=group_show($uname);
+	$bold='off';
+	if(isset($_POST['btn-post'])){
+		$caption=$_POST['myTextArea'];
+		$bold=$_POST['c_bold'];
+		$post_pic=addslashes(file_get_contents($_FILES['post_image']['tmp_name']));
+		$post_grps=$_POST['grp_list'];
+		if(count($post_grps)>=1){
+			post_create($uname,$caption,$post_pic,$bold,$post_grps);
+		}else{
+			echo '<div class="alert">Please Select Groups</div>';
+		}
 	}
+
 ?>
 <html>
 	<head>
@@ -35,21 +38,77 @@ foreach ($group1 as $fr) {
 				</ul>
 			</div>
 		</nav>
-
-		<div class="row">
-		<h3>Write Your Post Here</h3>
-		<form method="post" enctype="multipart/form-data">
-
-			<div class="col l4 offfset-l4">
-          <input  type="text" name="myTextArea" id="myTextArea" class="materialize-textarea" placeholder="Enter Text Here ...">
-          <input type="file" name="image" id="fileToUpload">
-		<input type="button" onclick="bold()" value="Bold"/>
-        </div>
-        </div>
-        <div class="row">
-        <h3>Select your groups to post</h3>
-        </div>
-		</form>
+		<div class="container">
+			<div class="row">
+				<div class="col offset-l2">
+					<h3>Write Your Post Here</h3>
+					<form method="post" enctype="multipart/form-data">
+						<div class="row">
+							<div>
+								<input  type="text" name="myTextArea" id="myTextArea" class="materialize-textarea" placeholder="Enter Text Here ...">
+								<br><br>
+								<div class="switch">
+									<label>
+										Unbold
+										<input type="checkbox" name="c_bold">
+										<span class="lever" onclick="bold()"></span>
+										Bold
+									</label>
+								</div>
+								<br>
+								<div class="file-field input-field">
+									<div class="black btn">
+										<span>Choose file</span>
+										<input type="file" id="post_img" name="post_image" class="validate">
+									</div>
+									<div class="file-path-wrapper">
+										<input class="file-path validate" type="text">
+									</div>
+								</div>
+								<!--<input type="button" onclick="bold()" value="Bold"/>-->
+							</div>
+						</div>
+						<div class="row">
+							<h3>Select Groups</h3>
+						</div>
+						<?php 
+							$i=0;
+							foreach($grps as $fr){
+								$query="SELECT group_name FROM groups WHERE group_id='$fr'";
+								$res=mysql_query($query);
+								$row=mysql_fetch_assoc($res);
+								if($i%4==0){
+									echo '<div class="row">';
+								}
+								if($i%4==0){
+									echo '
+										<div class="card col s2 m2 l2">
+											<input type="checkbox" id="'.$i.'" name="grp_list[]" value="'.$fr.'"/>
+											<label for="'.$i.'">'.$row['group_name'].'</label>
+										</div>';
+								}else{
+									echo '
+										<div class="card col s2 m2 l2 offset-s1 offset-m1 offset-l1">
+											<input type="checkbox" id="'.$i.'" name="mem_list[]" value="'.$fr.'"/>
+											<label for="'.$i.'">'.$row['group_name'].'</label>
+										</div>';
+								}
+								$i=$i+1;
+								if($i%4==0){
+									echo '</div>';
+								}
+							}
+							if($i%4!=0){
+								echo '</div>';
+							}
+						?>
+						<div class="row">
+							<button class="btn waves-effect waves-light black col s4 offset-s4" id="btn-post" type="submit" name="btn-post">Post</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 
