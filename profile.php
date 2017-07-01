@@ -88,12 +88,12 @@
   </div>
   </div>
 
-		<a class="lightbox large"> <div style="height: 100%; width: 100%;"><? echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'";/>'?> </div></a>
+		<a class="lightbox large"> <div style="height: 100%; width: 100%;"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'"/>'; ?> </div></a>
 			<div class="row">
 			<br>
 			<div class="card small center" style="margin-top:-20px">
 			<div>
-				<? echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'";/>'?>
+				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'"/>';?>
 				</div>
 			</div>
 			</div>
