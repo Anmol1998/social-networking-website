@@ -15,7 +15,9 @@
 		var settings = $.extend( {
             
 			postUrl: false, // once user will select an emoji, lets save this selection via ajax to DB.
-			defaultText: "Like" // default text for button
+			defaultText: "Like", // default text for button
+			pid:"rj",
+			uname:"rj",
 				
 		}, options);
 		
@@ -106,10 +108,16 @@
 			$.ajax({
 				type	:	'POST', // define the type of HTTP verb we want to use (POST for our form)
 				url		:	settings.postUrl, // the url where we want to POST
-				data	:	formData, // our data object
+				data	:	{
+								control_id: control_id,
+								value: value,
+								pid: settings.pid,
+								uname: settings.uname
+							}, // our data object
 				success	:	function(data){
 					
 					// nothing requires here but you can add something here. 
+					alert(formData);
 					console.log(data);
 				},
 				error: function() {

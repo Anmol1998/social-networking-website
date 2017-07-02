@@ -47,4 +47,71 @@
 			return "Something went Wrong..";
 		}
 	}
+	function check_emoji($pid, $uname){
+		$query="SELECT like,love,haha,wow,sad,angry FROM posts WHERE id='$pid'";
+		$res=mysql_query($query);
+		if($res){
+			$row=mysql_fetch_assoc($res);
+			if(in_array($uname,explode(';',$row['like']))){
+				return 'like';
+			}else if(in_array($uname,explode(';',$row['love']))){
+				return 'love';
+			}else if(in_array($uname,explode(';',$row['haha']))){
+				return 'haha';
+			}else if(in_array($uname,explode(';',$row['wow']))){
+				return 'wow';
+			}else if(in_array($uname,explode(';',$row['sad']))){
+				return 'sad';
+			}else if(in_array($uname,explode(';',$row['angry']))){
+				return 'angry';
+			}else{
+				return 'null';
+			}
+		}
+	}
+	function update_reaction($pid,$uname,$value){
+		$query="SELECT * FROM posts WHERE id='$pid'";
+		$res=mysql_query($query);
+		$row=mysql_fetch_assoc($res);
+		if(in_array($uname,explode(';',$row['reactions'])) and $value!='null'){
+			$emoji=check_emoji($pid,$uname);
+			$row[$emoji]=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
+			$x=explode(';',$row[$value]);
+			array_push($x,$uname);
+			$row[$value]=implode(';',$x);
+			$query="UPDATE posts SET $emoji='$row[$emoji]', $value='$row[$value]' WHERE id='$pid'";
+			$res=mysql_query($res);
+			if($res){
+				return "Reaction Updated";
+			}else{
+				return "Something went Wrong";
+			}
+		}else if(in_array($uname,explode(';',$row['reactions'])) and $value=='null'){
+			$emoji=check_emoji($pid,$uname);
+			$row[$emoji]=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
+			$x=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
+			$query="UPDATE posts SET $emoji='$row[$emoji]', reactions='$x' WHERE id='$pid'";
+			$res=mysql_query($res);
+			if($res){
+				return "Reaction Updated";
+			}else{
+				return "Something went Wrong";
+			}
+		}else{
+			$x=explode(';',$row[$emoji]);
+			array_push($x,$uname);
+			$row[$value]=implode(';',$x);
+			$x=explode(';',$row['reactions']);
+			array_push($x,$uname);
+			$x=implode(';',$x);
+			$query="UPDATE posts SET $value='$row[$value]', reactions='$x' WHERE id='$pid'";
+			$res=mysql_query($res);
+			if($res){
+				return "Reaction Updated";
+			}else{
+				return "Something went Wrong";
+			}
+		}
+	}
+	update_reaction('rj','rj','love');
 ?>
