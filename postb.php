@@ -113,5 +113,4 @@
 			}
 		}
 	}
-	update_reaction('rj','rj','love');
 ?>
