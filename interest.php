@@ -84,7 +84,6 @@
 	}
   ?>
 <footer class="page-footer black">
-<footer class="page-footer black">
           <div class="container">
             <div class="row">
                 <p class="grey-text text-lighten-4 center">Developed and Created by</p>
@@ -100,7 +99,7 @@
 <script>
 $(document).ready(function() {
   $('.FB_reactions').facebookReactions({
-    postUrl: "save.php",
+    postUrl: "reaction_update.php",
 	pid: document.getElementById("postid").value,
 	uname: document.getElementById("username").value
   });
