@@ -70,8 +70,9 @@
 							<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="'.$emoji.'">
 							<span style="">'.$emojitext.' ('.count(explode($row[$emoji])).' )</span>
 							</a>    
-						</div>
-						<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+						</div>';
+		?>
+						<form method="post" action="'.<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>.'">
 							<div class="input-field">
 								<input id="postid" type="hidden" class="validate" name="postid" value="'.$pid.'">
 								<input id="username" type="hidden" class="validate" name="username" value="'.$uname.'">
@@ -80,8 +81,7 @@
 					</div>
 				</div>
 			</div>
-			';
-	}
+	<?php }
   ?>
 <footer class="page-footer black">
           <div class="container">
