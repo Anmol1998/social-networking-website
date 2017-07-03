@@ -28,6 +28,14 @@
 	}
 	// type=0 -> friend request sent; type=1 -> friend request accepted; type=2 ->blocked
 	?>
+<style>
+	input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+</style>
 <html>
 	<head>
 		<title>My Profile</title>
@@ -42,6 +50,7 @@
 			<div class="nav-wrapper black">
 				<div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a><input type="text" name="search" placeholder="Search.."></a></li>
 				<li><a class="modal-trigger" href="#req1">Friend Requests</a></li>
 					<li><a href="home.html">Home</a></li>
 					<li><a href="interestpage.html">Other Interests</a></li>

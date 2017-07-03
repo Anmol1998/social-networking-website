@@ -5,6 +5,14 @@
 	$uname=$_SESSION['userName'];
 	$pids=post_show($uname);
 	?>
+<style>
+	input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+</style>
 <html>
 <head>
 	<title>Interests</title>
@@ -13,16 +21,19 @@
 <script src="jquery-ui_1.12.1_.min.js"></script>
 <script src="facebook-reactions.js"></script>
 <link rel="stylesheet" href="stylesheet1.css">
-<link rel="stylesheet" href="cssr/materialize.min.css">
-<script src="js1/jquery-2.1.1.min.js"></script>
-<script src="js1/materialize.min.js"></script>
+<link rel="stylesheet" href="cssr/materialize.css">
+<script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js1/materialize.min.1.js"></script>
+<script type="text/javascript" src="js1/materialize.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </script>
 <body>
 <nav>
     <div class="nav-wrapper black">
       <div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="home.html">Home</a></li>
+      	<li><a><input type="text" name="search" placeholder="Search.."></a></li>
+        <li><a href="home.php">Home</a></li>
         <li><a href="interestpage.html">Other Interests</a></li>
       </ul>
     </div>
@@ -83,6 +94,22 @@
 			</div>
 	<?php }
   ?>
+  <div class="fixed-action-btn" style="bottom: 14px; right:3%;">
+		<a class="btn-floating btn-large black">
+			<i class="large material-icons">star</i>
+		</a>
+</div>
+  <div class="fixed-action-btn" style="bottom: 14px; right:95%;">
+		<a class="btn-floating btn-large black">
+			<i class="large material-icons">language</i>
+		</a>
+		<ul>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
+			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Groups" href="groups.php"><i class="large material-icons">supervisor_account</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.html"><i class="large material-icons">vpn_key</i></a></li>
+			
+		</ul>
+	</div>
 <footer class="page-footer black">
           <div class="container">
             <div class="row">
