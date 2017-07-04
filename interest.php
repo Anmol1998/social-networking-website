@@ -2,17 +2,9 @@
 	session_start();
 	require_once 'dbconnect.php';
 	require_once 'postb.php';
-	//uname=$_SESSION['userName'];
-	$uname='rakshit';
+	$uname=$_SESSION['userName'];
 	$pids=post_show($uname);
 	?>
-<style>
-	input[type=text] {
-    width: 130px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-</style>
 <html>
 <head>
 	<title>Interests</title>
@@ -25,19 +17,20 @@
 <script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js1/materialize.min.1.js"></script>
 <script type="text/javascript" src="js1/materialize.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</script>
 <body>
 <nav>
     <div class="nav-wrapper black">
       <div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-      	<li><a><input type="text" name="search" placeholder="Search.."></a></li>
-        <li><a href="home.php">Home</a></li>
+		<li><form><div class="input-field"><input id="search" type="text" name="search" placeholder="Search a Friend..." onkeyup="showHint(this.value)"></div></form></li>
+		<li><a href="home.php">Home</a></li>
         <li><a href="interestpage.html">Other Interests</a></li>
       </ul>
     </div>
   </nav>
+  <div id="txtHint" style="position:absolute; z-index:999; width:100%; margin-left:70%;"></div>
   <br>
   <?php
 	foreach($pids as $pid){
@@ -132,3 +125,52 @@ $(document).ready(function() {
 	uname: document.getElementById("username").value
   });
 });
+</script>
+<script>
+function showHint(str) {
+    if (str.length == 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "search.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+<script>
+$(document).ready(function(){
+
+ alert('NO');
+ load_data();
+
+ function load_data(querry)
+ {
+  $.ajax({
+   url:"search.php",
+   method:"POST",
+   data:{querry:querry},
+   success:function(data)
+   {
+	$('#result').html(data);
+   }
+  });
+ }
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>
