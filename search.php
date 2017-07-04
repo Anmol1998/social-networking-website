@@ -7,7 +7,7 @@
 		$output.='<div class="row"><div class="collection col l2 white">';
 		while($row=mysql_fetch_assoc($res)){
 			$output.='
-				<a class="collection-item" href="profile.php?'.$row['userName'].'">'.$row["firstname"].' '.$row["lastname"].' ( '.$row["userName"].' )</a>';
+				<a class="collection-item" href="profile.php?userName='.$row['userName'].'">'.$row["firstname"].' '.$row["lastname"].' ( '.$row["userName"].' )</a>';
 		}
 		$output.='</div></div>';
 		echo $output;
