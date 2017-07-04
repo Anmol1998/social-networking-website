@@ -35,7 +35,7 @@
 	<head>
 		<title>My Profile</title>
 	</head>
-	<link rel="stylesheet" href="cssr/materialize.css">
+	<link rel="stylesheet" href="cssr/materialize1.css">
 	<script src="js1/jquery-2.1.1.min.js"></script>
 	<script src="js1/materialize.min.js"></script>
 	<script type="text/javascript" src="js1/materialize.js"></script>
@@ -93,16 +93,11 @@
     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>
   </div>
-
-			<a class="lightbox large"> <div><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'"/>'; ?> </div></a>
-			<div class="row">
-			<br>
-			<div class="card small center" style="margin-top:-20px">
-				<div>
-					<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'/>';?>
-				</div>
-			</div>
-			</div>
+		<div class="parallax-container">
+			<?php echo '<div class="parallax"><img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'"	/></div>';?>
+		</div>
+		<!--scroll spy-->      
+			<?php echo '<br><img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'" class="materialboxed" width="20%" style="margin-left:40%;"/>';?>
 			<center><a class="waves-effect waves-light btn"><?php echo $disp_firstname.' '.$disp_lastname; ?></a></center>
 			<?php
 				if($uname!=$_SESSION['userName']){
@@ -225,8 +220,6 @@
 			</div>
 		</div>
 		<!--parallax-->
-		<div class="parallax"></div>
-		<!--scroll spy-->      
 		<footer class="page-footer black">
 			<div class="container">
 				<div class="row">
@@ -280,6 +273,11 @@ span.onclick = function() {
 }
 </script>
 <script>
+	$(document).ready(function(){
+      $('.parallax').parallax();
+    });
+</script>
+<script>
 function showHint(str) {
     if (str.length == 0) {
         document.getElementById("txtHint").innerHTML = "";
@@ -295,5 +293,10 @@ function showHint(str) {
         xmlhttp.send();
     }
 }
+</script>
+<script>
+ $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
 </script>
 <?php ob_end_flush(); ?>
