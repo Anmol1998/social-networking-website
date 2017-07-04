@@ -2,7 +2,8 @@
 	session_start();
 	require_once 'dbconnect.php';
 	require_once 'postb.php';
-	$uname=$_SESSION['userName'];
+	//uname=$_SESSION['userName'];
+	$uname='rakshit';
 	$pids=post_show($uname);
 	?>
 <style>
@@ -10,7 +11,6 @@
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
-}
 }
 </style>
 <html>
@@ -104,10 +104,10 @@
 			<i class="large material-icons">language</i>
 		</a>
 		<ul>
-		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="developer.html"><i class="large material-icons">settings_phone</i></a></li>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
 			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Groups" href="groups.php"><i class="large material-icons">supervisor_account</i></a></li>
 			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.php"><i class="large material-icons">vpn_key</i></a></li>
-			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Profile" href="profile.php"><i class="large material-icons">assignment_ind</i></a></li>
+			<?php echo '<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Profile" href="profile.php?userName='.$uname.'"><i class="large material-icons">assignment_ind</i></a></li>'; ?>
 			
 		</ul>
 	</div>
