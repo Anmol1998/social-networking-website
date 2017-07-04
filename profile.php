@@ -94,20 +94,20 @@
   </div>
   </div>
 
-		<a class="lightbox large"> <div style="height: 100%; width: 100%;"><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'"/>'; ?> </div></a>
+			<a class="lightbox large"> <div><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'"/>'; ?> </div></a>
 			<div class="row">
 			<br>
 			<div class="card small center" style="margin-top:-20px">
-			<div>
-				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_cover).'"/>';?>
+				<div>
+					<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($disp_dp).'/>';?>
 				</div>
 			</div>
 			</div>
 			<center><a class="waves-effect waves-light btn"><?php echo $disp_firstname.' '.$disp_lastname; ?></a></center>
 			<?php
 				if($uname!=$_SESSION['userName']){
-					if(!in_array(frndlist($uname,$_SESSION['userName']))){
-						echo '<button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-reject" type="submit" name="sendfrq">Send Friend Request</button>';						
+					if(!in_array($uname,frndlist($_SESSION['userName']))){
+						echo '<center><button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-reject" type="submit" name="sendfrq">Send Friend Request</button><center>';						
 					}
 				}
 			?>
