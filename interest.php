@@ -94,9 +94,9 @@
 			</div>
 	<?php }
   ?>
-  <div class="fixed-action-btn" style="bottom: 14px; right:3%;">
-		<a class="btn-floating btn-large black">
-			<i class="large material-icons">star</i>
+	<div class="fixed-action-btn" style="bottom: 14px; right:3%;">
+		<a href="login1.php" class="btn-floating btn-large black tooltipped" data-tooltip="Post" data-position="top" data-delay="50" >
+			<i class="large material-icons">mode_edit</i>
 		</a>
 </div>
   <div class="fixed-action-btn" style="bottom: 14px; right:95%;">
@@ -106,7 +106,8 @@
 		<ul>
 		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
 			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Groups" href="groups.php"><i class="large material-icons">supervisor_account</i></a></li>
-			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.html"><i class="large material-icons">vpn_key</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.php"><i class="large material-icons">vpn_key</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Profile" href="profile.php"><i class="large material-icons">assignment_ind</i></a></li>
 			
 		</ul>
 	</div>

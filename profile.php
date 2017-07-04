@@ -43,6 +43,7 @@
 	<link rel="stylesheet" href="cssr/materialize.css">
 	<script src="js1/jquery-2.1.1.min.js"></script>
 	<script src="js1/materialize.min.js"></script>
+	<script type="text/javascript" src="js1/materialize.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<body>
@@ -149,6 +150,24 @@
 					</ul>
 				</div>
 			</div>
+			<div class="fixed-action-btn" style="bottom: 14px; right:3%;">
+		<a href="login1.php" class="btn-floating btn-large black tooltipped" data-tooltip="Post" data-position="top" data-delay="50" >
+			<i class="large material-icons">mode_edit</i>
+		</a>
+</div>
+  <div class="fixed-action-btn" style="bottom: 14px; right:95%;">
+		<a class="btn-floating btn-large black">
+			<i class="large material-icons">language</i>
+
+		</a>
+		<ul>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
+			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Groups" href="groups.php"><i class="large material-icons">supervisor_account</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.html"><i class="large material-icons">vpn_key</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Edit Profile" href="editprofile.php"><i class="large material-icons">mode_edit</i></a></li>
+			
+		</ul>
+	</div>
 			<!--from city-->
 			<div class="row container">
 				<div id="general info" class="section scrollspy">
@@ -221,8 +240,6 @@ $(document).ready(function(){
 
   $('.collapsible').collapsible({
     accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
-    onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
   });
 </script>
 

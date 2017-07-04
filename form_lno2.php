@@ -18,6 +18,7 @@
 		$hometown=$_POST['hometown'];
 		$school=$_POST['school'];
 		$college=$_POST['college'];
+		$work=$_POST['work'];
 		$telephone=$_POST['telephone'];
 		$email=$_POST['email'];
 		$description=$_POST['description'];
@@ -29,7 +30,7 @@
 		else{
 			//Inserting record in table using INSERT query
 			$query="UPDATE members 
-					SET firstname='$firstname', lastname='$lastname', dp='$dp', cover='$cover', gender='$gender', dob='$dob', currentcity='$currentcity', hometown='$hometown', school='$school', college='$college', telephone='$telephone', email='$email', description='$description' 
+					SET firstname='$firstname', lastname='$lastname', dp='$dp', cover='$cover', gender='$gender', dob='$dob', currentcity='$currentcity', hometown='$hometown', school='$school', college='$college',work='$work', telephone='$telephone', email='$email', description='$description' 
 					WHERE userName='$uname'";
 			$res = mysql_query($query);
 			if ($res) {
@@ -173,12 +174,12 @@
 					</div>
 					<div class="input-field col s3">
 						<i class="material-icons prefix">class</i>
-						<input id="college" type="tel" class="validate" name="college">
+						<input id="college" type="text" class="validate" name="college">
 						<label for="college">College</label>
 					</div>
 					<div class="input-field col s3">
 						<i class="material-icons prefix">work</i>
-						<input id="work" type="tel" class="validate" name="work">
+						<input id="work" type="text" class="validate" name="work">
 						<label for="work">Work</label>
 					</div>
 				</div>
