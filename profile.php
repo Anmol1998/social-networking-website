@@ -35,7 +35,6 @@
 		$errorMessage = "";
 		$firstname=$_POST['firstname'];
 		$lastname=$_POST['lastname'];
-		$gender=$_POST['gender'];
 		$dob=$_POST['dob'];
 		$currentcity=$_POST['currentcity'];
 		$hometown=$_POST['hometown'];
@@ -52,7 +51,7 @@
 		else{
 			//Inserting record in table using INSERT query
 			$query="UPDATE members 
-					SET firstname='$firstname', lastname='$lastname', gender='$gender', dob='$dob', currentcity='$currentcity', hometown='$hometown', school='$school', college='$college',work='$work', telephone='$telephone', description='$description' 
+					SET firstname='$firstname', lastname='$lastname', dob='$dob', currentcity='$currentcity', hometown='$hometown', school='$school', college='$college',work='$work', telephone='$telephone', description='$description' 
 					WHERE userName='$uname'";
 			$res = mysql_query($query);
 			if ($res) {
@@ -226,92 +225,82 @@
 	<div id="editprofile" class="modal">
     <div class="modal-content">
       <form method="post" enctype="multipart/form-data">
-<div class="container">
-<h3>Edit Profile</h3>
+<h4>Edit Profile</h4>
 <div class="row">
-<div class="col l2">
-<h5>Name</h5>
-</div>
-<div class="col l2">
-<input placeholder="" id="firstname" name="firstname" type="text" class="validate" value="<?php echo $disp_firstname ?>">
-</div>
-<div class="col l2">
-<input id="lastname" type="text" name="lastname" class="validate" value="<?php echo $disp_lastname ?>">
-</div>
-</div>
-
-<div class="row">
-<div class="col l2">
-<h5>Gender</h5>
-</div>
-<div class="input-field col l2">
-					<select class="browser-default"  name="gender">
-						<option value="<?php echo $disp_gender ?>" class="browser default" selected><?php echo $disp_gender ?></option>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select>
-				</div>
-<div class="col l2 offset-l2">
-<h5>Date of Birth</h5>
+<div class="col s2">
+<h6>Name</h6>
 </div>
 <div class="col s2">
-				<i class="material-icons prefix">today</i>
-				<input type="date" class="datepicker" name="dob" value="<?php echo $disp_dob ?>">
+<input style="height: 14px; margin-top:+10px" placeholder="" id="firstname" name="firstname" type="text" class="validate" value="<?php echo $disp_firstname ?>">
+</div>
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="lastname" type="text" name="lastname" class="validate" value="<?php echo $disp_lastname ?>">
+</div>
+</div>
+
+<div class="row">
+
+
+<div class="col s2">
+<h6>Date of Birth</h6>
+</div>
+<div class="col s2">
+				<input style="height: 14px; margin-top:+10px" type="date" class="datepicker" name="dob" value="<?php echo $disp_dob ?>">
 </div>
 </div>
 
 
 <div class="row">
-<div class="col l2">
-<h5>Current City</h5>
+<div class="col s2">
+<h6>Current City</h6>
 </div>
-<div class="col l2">
-<input id="icon_prefix" type="text" class="validate" name="currentcity" value="<?php echo $disp_currentcity ?>">
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="icon_prefix" type="text" class="validate" name="currentcity" value="<?php echo $disp_currentcity ?>">
 </div>
-<div class="col l2 offset-l2">
-<h5>Home Town</h5>
+<div class="col s2 offset-s2">
+<h6>Home Town</h6>
 </div>
-<div class="col l2">
-<input id="icon_telephone" type="tel" class="validate" name="hometown" value="<?php echo $disp_hometown ?>">
-</div>
-</div>
-
-<div class="row">
-<div class="col l2">
-<h5>School</h5>
-</div>
-<div class="col l2">
-<input id="school" type="text" class="validate" name="school" value="<?php echo $disp_school ?>">
-</div>
-<div class="col l2 offset-l2">
-<h5>College</h5>
-</div>
-<div class="col l2">
-<input id="college" type="tel" class="validate" name="college" value="<?php echo $disp_college ?>">
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="icon_telephone" type="tel" class="validate" name="hometown" value="<?php echo $disp_hometown ?>">
 </div>
 </div>
 
 <div class="row">
-<div class="col l2">
-<h5>Work</h5>
+<div class="col s2">
+<h6>School</h6>
 </div>
-<div class="col l2">
-<input id="college" type="tel" class="validate" name="work" value="<?php echo $disp_work ?>">
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="school" type="text" class="validate" name="school" value="<?php echo $disp_school ?>">
 </div>
-<div class="col l2 offset-l2">
-<h5>Phone</h5>
+<div class="col s2 offset-s2">
+<h6>College</h6>
 </div>
-<div class="col l2">
-<input id="icon_telephone" type="tel" class="validate" name="telephone" value="<?php echo $disp_telephone ?>">
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="college" type="tel" class="validate" name="college" value="<?php echo $disp_college ?>">
 </div>
 </div>
 
 <div class="row">
-<div class="col l2">
-<h5>Description</h5>
+<div class="col s2">
+<h6>Work</h6>
 </div>
-<div class="col l6">
-<input id="decription" name="description" value="<?php echo $disp_description ?>">
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="college" type="tel" class="validate" name="work" value="<?php echo $disp_work ?>">
+</div>
+<div class="col s2 offset-s2">
+<h6>Phone</h6>
+</div>
+<div class="col s2">
+<input style="height: 14px; margin-top:+10px" id="icon_telephone" type="tel" class="validate" name="telephone" value="<?php echo $disp_telephone ?>">
+</div>
+</div>
+
+<div class="row">
+<div class="col s2">
+<h6>Description</h6>
+</div>
+<div class="col s6">
+<input style="height: 14px; margin-top:+10px" id="decription" name="description" value="<?php echo $disp_description ?>">
 </div>
 </div>
 <div class="row center">
@@ -319,11 +308,10 @@
 				<i class="material-icons right">send</i>
 			</button>
 </div>
-</div>
 </form>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
   </div>
 			<!--from city-->
@@ -455,4 +443,14 @@ function showHint(str) {
     $('.materialboxed').materialbox();
   });
 </script>
+<script>
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 100 // Creates a dropdown of 15 years to control year
+  });
+  </script>
+  <script>
+  $('#textarea1').val('New Text');
+  $('#textarea1').trigger('autoresize');
+  </script>
 <?php ob_end_flush(); ?>
