@@ -68,7 +68,7 @@
 				unset($telephone);
 				unset($description);
 				
-				header("Location: interestpage.html");
+				header("Location: profile.php");
 			} else {
 				$errTyp = "danger";
 				$errMSG = "Something went wrong, try again later...";
