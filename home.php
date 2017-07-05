@@ -210,15 +210,15 @@ font-family:ariel
 			?>
 			<div class="row">
 				<div class="input-field col l3 m3 s3" style="border-radius:5; height:50px; margin-top:5;">
-					<input placeholder="Enter Username" id="uname" type="text" class="validate grey darken-4" name="uname">
+					<input placeholder="Enter Username" id="uname" type="text" class="validate grey darken-4" name="uname" style="height:30px">
 				</div>
 				<div class="input-field offset-l1 offset-m1 offset-s1 col l3 m3 s3" style="border-radius:5; height:50px;  margin-top:5;">
-					<input placeholder="Enter Password" id="psw" type="password" class="validate grey darken-4" name="psw">
+					<input placeholder="Enter Password" id="psw" type="password" class="validate grey darken-4" name="psw" style="height:30px">
 				</div>
 				<div class="input-field offset-l1 offset-m1 offset-s1 col l2 m2 s2" style="border-radius:5; height:50px;  margin-top:5;">
-					<input placeholder="Time" id="time" type="text" class="validate grey darken-4" name="time">
+					<input placeholder="Time" id="time" type="text" class="validate grey darken-4" name="time" style="height:30px">
 				</div>
-				<div class="offset-l1 offset-m1 offset-s1 col l1 m1 s1" style=" margin-top:10;">
+				<div class="offset-l1 offset-m1 offset-s1 col l1 m1 s1" style="     margin-top: 1px; margin-left: 83.531;">
 					<button class="waves-effect waves-light btn grey darken-4" style="border-radius:5;" type="submit" name="btn-signin">SUBMIT</button>
 				</div>
 			</div>
