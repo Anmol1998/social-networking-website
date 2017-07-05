@@ -68,7 +68,7 @@
 				unset($telephone);
 				unset($description);
 				
-				header("Location: profile.php");
+				header("Location: interestpage.html");
 			} else {
 				$errTyp = "danger";
 				$errMSG = "Something went wrong, try again later...";
@@ -152,7 +152,7 @@
 			<?php
 				if($uname!=$_SESSION['userName']){
 					if(!in_array($uname,frndlist($_SESSION['userName']))){
-						echo '<center><button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-reject" type="submit" name="sendfrq">Send Friend Request</button><center>';						
+						echo '<center><button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-sfrq" type="submit" name="sendfrq">Send Friend Request</button><center>';						
 					}
 				}
 			?>
@@ -209,9 +209,9 @@
 
 		</a>
 		<ul>
-		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="developer.html"><i class="large material-icons">settings_phone</i></a></li>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="developer.php"><i class="large material-icons">settings_phone</i></a></li>
 			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Groups" href="groups.php"><i class="large material-icons">supervisor_account</i></a></li>
-			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.php"><i class="large material-icons">vpn_key</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="logout.php"><i class="large material-icons">vpn_key</i></a></li>
 			<?php 
 				if($uname==$_SESSION['userName']){
 					echo '<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Edit Profile" href="#editprofile"><i class="large material-icons">mode_edit</i></a></li>';

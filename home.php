@@ -6,10 +6,6 @@
 	$error = false;
 	if ( isset($_POST['btn-signup']) ) {
 		// clean user inputs to prevent sql injections
-		$name = trim($_POST['name']);
-		$name = strip_tags($name);
-		$name = htmlspecialchars($name);
-
 		$email = trim($_POST['email']);
 		$email = strip_tags($email);
 		$email = htmlspecialchars($email);
@@ -25,17 +21,6 @@
 		$repsw = trim($_POST['repsw']);
 		$repsw = strip_tags($repsw);
 		$repsw = htmlspecialchars($repsw);
-		// basic name validation
-		if (empty($name)) {
-			$error = true;
-			$nameError = "Please enter your full name.";
-		} else if (strlen($name) < 3) {
-			$error = true;
-			$nameError = "Name must have atleat 3 characters.";
-		} else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
-			$error = true;
-			$nameError = "Name must contain alphabets and space.";
-		}
 		//basic email validation
 		if ( !filter_var($email,FILTER_VALIDATE_EMAIL) ) {
 			$error = true;
@@ -87,7 +72,7 @@
 		// if there's no error, continue to signup
 		if( $error==false ) {
 
-			$query = "INSERT INTO users(Name,userEmail,userName,userPSW) VALUES('$name','$email','$uname','$password')";
+			$query = "INSERT INTO users(userEmail,userName,userPSW) VALUES($email','$uname','$password')";
 			$res = mysql_query($query);
 			if ($res) {
 				$errTyp = "success";
@@ -96,7 +81,6 @@
 				$res = mysql_query($query);
 				if($res){
 					$_SESSION['userName']=$uname;
-					unset($name);
 					unset($email);
 					unset($uname);
 					unset($psw);
@@ -155,7 +139,7 @@
 		// if there's no error, continue to signup
 		if( $error==false ) {
 
-			$query = "SELECT Name, userEmail, userPSW FROM users WHERE userName='$uname'";
+			$query = "SELECT userEmail, userPSW FROM users WHERE userName='$uname'";
 			$res = mysql_query($query);
 			$row=mysql_fetch_array($res);
 			$count = mysql_num_rows($res); 
