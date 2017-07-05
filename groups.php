@@ -60,7 +60,7 @@
 				<i class="large material-icons" >add</i>
 			</a>
 		</div>
-		<footer class="page-footer black">
+		<footer class="page-footer black" style="position:absolute ; bottom:0px ; width:100%">
     <div class="container">
         <div class="row" style="margin-bottom: 0">
             <p class="grey-text text-lighten-4 center">Developed and Created by</p>
