@@ -30,6 +30,56 @@
 		friendrequest_send($_SESSION['userName'],$uname);
 	}
 	// type=0 -> friend request sent; type=1 -> friend request accepted; type=2 ->blocked
+	if(isset($_POST['submit']))
+	{
+		$errorMessage = "";
+		$firstname=$_POST['firstname'];
+		$lastname=$_POST['lastname'];
+		$gender=$_POST['gender'];
+		$dob=$_POST['dob'];
+		$currentcity=$_POST['currentcity'];
+		$hometown=$_POST['hometown'];
+		$school=$_POST['school'];
+		$college=$_POST['college'];
+		$work=$_POST['work'];
+		$telephone=$_POST['telephone'];
+		$description=$_POST['description'];
+		// Validation will be added here
+ 
+		if ($errorMessage != "" ) {
+			echo "<p class='message'>" .$errorMessage. "</p>" ;
+		}
+		else{
+			//Inserting record in table using INSERT query
+			$query="UPDATE members 
+					SET firstname='$firstname', lastname='$lastname', gender='$gender', dob='$dob', currentcity='$currentcity', hometown='$hometown', school='$school', college='$college',work='$work', telephone='$telephone', description='$description' 
+					WHERE userName='$uname'";
+			$res = mysql_query($query);
+			if ($res) {
+				$_SESSION['userName']=$uname;
+				unset($errorMessage);
+				unset($firstname);
+				unset($lastname);
+				unset($gender);
+				unset($dob);
+				unset($currentcity);
+				unset($hometown);
+				unset($school);
+				unset($college);
+				unset($telephone);
+				unset($description);
+				
+				header("Location: interestpage.html");
+			} else {
+				$errTyp = "danger";
+				$errMSG = "Something went wrong, try again later...";
+			}
+}
+}
+
+
+
+
 	?>
 <html>
 	<head>
@@ -159,16 +209,122 @@
 
 		</a>
 		<ul>
-		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="#contact"><i class="large material-icons">settings_phone</i></a></li>
+		    <li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Developer Page" href="developer.html"><i class="large material-icons">settings_phone</i></a></li>
 			<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Groups" href="groups.php"><i class="large material-icons">supervisor_account</i></a></li>
-			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.html"><i class="large material-icons">vpn_key</i></a></li>
+			<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Logout" href="home.php"><i class="large material-icons">vpn_key</i></a></li>
 			<?php 
 				if($uname==$_SESSION['userName']){
-					echo '<li><a class="btn-floating black tooltipped" data-position="right" data-delay="50" data-tooltip="Edit Profile" href="editprofile.php"><i class="large material-icons">mode_edit</i></a></li>';
+					echo '<li><a class="btn-floating black tooltipped modal-trigger" data-position="right" data-delay="50" data-tooltip="Edit Profile" href="#editprofile"><i class="large material-icons">mode_edit</i></a></li>';
 					} 
 			?>			
 		</ul>
 	</div>
+
+
+
+	<div id="editprofile" class="modal">
+    <div class="modal-content">
+      <form method="post" enctype="multipart/form-data">
+<div class="container">
+<h3>Edit Profile</h3>
+<div class="row">
+<div class="col l2">
+<h5>Name</h5>
+</div>
+<div class="col l2">
+<input placeholder="" id="firstname" name="firstname" type="text" class="validate" value="<?php echo $disp_firstname ?>">
+</div>
+<div class="col l2">
+<input id="lastname" type="text" name="lastname" class="validate" value="<?php echo $disp_lastname ?>">
+</div>
+</div>
+
+<div class="row">
+<div class="col l2">
+<h5>Gender</h5>
+</div>
+<div class="input-field col l2">
+					<select class="browser-default"  name="gender">
+						<option value="<?php echo $disp_gender ?>" class="browser default" selected><?php echo $disp_gender ?></option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</div>
+<div class="col l2 offset-l2">
+<h5>Date of Birth</h5>
+</div>
+<div class="col s2">
+				<i class="material-icons prefix">today</i>
+				<input type="date" class="datepicker" name="dob" value="<?php echo $disp_dob ?>">
+</div>
+</div>
+
+
+<div class="row">
+<div class="col l2">
+<h5>Current City</h5>
+</div>
+<div class="col l2">
+<input id="icon_prefix" type="text" class="validate" name="currentcity" value="<?php echo $disp_currentcity ?>">
+</div>
+<div class="col l2 offset-l2">
+<h5>Home Town</h5>
+</div>
+<div class="col l2">
+<input id="icon_telephone" type="tel" class="validate" name="hometown" value="<?php echo $disp_hometown ?>">
+</div>
+</div>
+
+<div class="row">
+<div class="col l2">
+<h5>School</h5>
+</div>
+<div class="col l2">
+<input id="school" type="text" class="validate" name="school" value="<?php echo $disp_school ?>">
+</div>
+<div class="col l2 offset-l2">
+<h5>College</h5>
+</div>
+<div class="col l2">
+<input id="college" type="tel" class="validate" name="college" value="<?php echo $disp_college ?>">
+</div>
+</div>
+
+<div class="row">
+<div class="col l2">
+<h5>Work</h5>
+</div>
+<div class="col l2">
+<input id="college" type="tel" class="validate" name="work" value="<?php echo $disp_work ?>">
+</div>
+<div class="col l2 offset-l2">
+<h5>Phone</h5>
+</div>
+<div class="col l2">
+<input id="icon_telephone" type="tel" class="validate" name="telephone" value="<?php echo $disp_telephone ?>">
+</div>
+</div>
+
+<div class="row">
+<div class="col l2">
+<h5>Description</h5>
+</div>
+<div class="col l6">
+<input id="decription" name="description" value="<?php echo $disp_description ?>">
+</div>
+</div>
+<div class="row center">
+<button class="btn black large waves-effect waves-light col l2 offset-l5" id="btn-login" type="submit" name="submit">Submit
+				<i class="material-icons right">send</i>
+			</button>
+</div>
+</div>
+</form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 			<!--from city-->
 			<div class="row">
 				<div id="general info" class="section scrollspy">
@@ -222,7 +378,7 @@
 		<!--parallax-->
 		<footer class="page-footer black">
 			<div class="container">
-				<div class="row" style="margin-bottom:0px">
+				<div class="row">
 					<p class="grey-text text-lighten-4 center">Developed and Created by</p>
 					<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
 				</div>
@@ -248,7 +404,6 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();
   });
 </script>
-
 
 <script>
 // Get the modal
