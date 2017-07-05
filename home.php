@@ -92,7 +92,7 @@
 			if ($res) {
 				$errTyp = "success";
 				$errMSG = "Successfully registered, you may login now";
-				$query = "INSERT INTO members(userName) VALUES('$uname')";
+				$query = "INSERT INTO members(userName,email) VALUES('$uname','$email')";
 				$res = mysql_query($query);
 				if($res){
 					$_SESSION['userName']=$uname;
@@ -299,10 +299,6 @@ font-family:ariel
 				}
 			?>
 		<div class="row">
-        <div class="input-field col s10 offset-s1">
-          <input type="text" id="name" name="name" class="validate" placeholder="Enter FullName" maxlength="60">
-          <label for="name" data-error="<?php echo $nameError?>">Name</label>
-        </div>
         <div class="input-field col s10 offset-s1">
           <input type="email" id="email" name="email" class="validate" placeholder="Enter Email-Id" maxlength="80">
           <label for="email" data-error="<?php echo $emailError?>">Email-Id</label>
