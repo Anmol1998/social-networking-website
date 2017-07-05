@@ -85,11 +85,12 @@
 	<head>
 		<title>My Profile</title>
 	</head>
-	<link rel="stylesheet" href="cssr/materialize1.css">
-	<script src="js1/jquery-2.1.1.min.js"></script>
-	<script src="js1/materialize.min.js"></script>
-	<script type="text/javascript" src="js1/materialize.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="cssr/materialize.css">
+	<script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js1/materialize.js"></script>
+	<script type="text/javascript" src="js1/materialize.js"></script>
+	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<body>
