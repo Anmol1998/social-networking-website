@@ -107,7 +107,7 @@
 				}
 			?>
 		<!--About me-->
-		<div class="row container">
+		<div class="row">
 			<div id="about me" class="section scrollspy">
 				<div class="col s12 m6 l6 offset-l3">
 					<div class="card red lighten-5 z-depth-1">
@@ -170,9 +170,9 @@
 		</ul>
 	</div>
 			<!--from city-->
-			<div class="row container">
+			<div class="row">
 				<div id="general info" class="section scrollspy">
-					<div class="col l9 offset-l4">
+					<div class="col l6 offset-l3">
 						<ul class="collection">
 							<li class="collection-item avatar">
 								<i class="material-icons circle red">room</i>

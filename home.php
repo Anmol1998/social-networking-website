@@ -189,7 +189,7 @@ font-family:ariel
 </style>
 <!--Initialisations end-->
 
-<body style="overflow-x:hidden">
+<body>
 <div id="navbar" class="scrollspy"></div>
 <nav>
     <div class="col s12 m12 l12 nav-wrapper black">
@@ -331,14 +331,13 @@ font-family:ariel
   </div>
 </div>
  <footer class="page-footer black">
-          <div class="container">
-            <div class="row" style="margin-bottom:0px">
-                <p class="grey-text text-lighten-4 center">Developed and Created by</p>
-        <p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
-            </div>
-          </div>
-          
-        </footer>
+    <div class="container">
+        <div class="row" style="margin-bottom: 0">
+            <p class="grey-text text-lighten-4 center">Developed and Created by</p>
+			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+        </div>
+    </div>
+</footer>
 
 </body>
  <script>	

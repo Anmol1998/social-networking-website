@@ -28,7 +28,7 @@
     <div class="nav-wrapper black">
       <div style="margin-left:20px"><a href="#" class="brand-logo">LNO2</a></div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="home.html">Home</a></li>
+        <li><a href="home.php">Home</a></li>
       </ul>
     </div>
   </nav>
@@ -90,13 +90,13 @@
 </div>
 </div>
 <footer class="page-footer black">
-			<div class="container">
-				<div class="row">
-					<p class="grey-text text-lighten-4 center">Developed and Created by</p>
-					<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
-				</div>
-			</div>
-        </footer>
+    <div class="container">
+        <div class="row" style="margin-bottom: 0">
+            <p class="grey-text text-lighten-4 center">Developed and Created by</p>
+			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+        </div>
+    </div>
+</footer>
 </body>
 
 <script>

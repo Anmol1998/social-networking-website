@@ -2,8 +2,7 @@
 	ob_start();
 	session_start();
 	include_once 'dbconnect.php';
-	$uname=$_SESSION['userName'];
-	echo $uname;	
+	$uname=$_SESSION['userName'];	
 	if(isset($_POST['submit']))
 	{
 		$uname=$_SESSION['userName'];
@@ -81,28 +80,27 @@
   
 <div class="row">
    <div class="col offset-s2">
-		<h3>Person</h3>
+		<h5>Person</h5>
 	</div>
 </div>
 <div class="row">
-    <form class="col s12" method="post" enctype="multipart/form-data">
+    <form class="col l12" method="post" enctype="multipart/form-data">
         <div class="row">
-			<div class="input-field col s4 offset-s2">
+			<div class="input-field col l4 offset-l2">
 				<i class="material-icons prefix">account_circle</i>
 				<input id="firstname" type="text" class="validate" name="firstname">
 				<label for="firstname">First Name</label>
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col l4">
 				<input id="lastname" type="text" class="validate" name="lastname">
 				<label for="lastname">Last Name</label>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col s4 offset-s2">
-				<h3>Profile Photo</h3>
+			<div class="col l4 offset-l2">
 				<div class="file-field input-field">
 					<div class="black btn">
-						<span>Choose file</span>
+						<span>Profile Photo</span>
 						<input type="file" id="dp" name="dp" class="validate">
 					</div>
 					<div class="file-path-wrapper">
@@ -112,11 +110,10 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col s4 offset-s2">
-				<h3>Cover Photo</h3>
+			<div class="col l4 offset-l2">
 				<div class="file-field input-field">
 					<div class="black btn">
-						<span>Choose file</span>
+						<span>Cover Photo</span>
 						<input type="file" id="cover" name="cover" class="validate">
 					</div>
 					<div class="file-path-wrapper">
@@ -126,8 +123,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col s4 offset-s2">
-				Gender
+			<div class="col l4 offset-l2">
+				<h5>Gender</h5>
 				<div class="input-field">
 					<select class="browser-default"  name="gender">
 						<option value="" disabled selected>Choose your option</option>
@@ -136,15 +133,14 @@
 					</select>
 				</div>
 			</div>
-			<div class="col s4">
-				<label for="dob">Date Of Birth</label>
-				<i class="material-icons prefix">today</i>
+			<div class="col l4">
+				<h5>Date of Birth</h5>
 				<input type="date" class="datepicker" name="dob">
 			</div>
 		</div>
 		<div class="row">
-			<div class="col offset-s2">
-				<h3>Location</h3>
+			<div class="col l4 offset-l2">
+				<h5>Location</h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
@@ -163,7 +159,7 @@
 		</div>
 		<div class="row">
 			<div class="col offset-s2">
-				<h3>Education and Work</h3>
+				<h5>Education and Work</h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
@@ -187,7 +183,7 @@
 		</div>
 		<div class="row">
 			<div class="col offset-s2">
-				<h3>Contact Info</h3>
+				<h5>Contact Info</h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
@@ -206,7 +202,7 @@
 		</div>	
 		<div class="row">
 			<div class="col offset-s2">
-				<h3>Describe Yourself!</h3>
+				<h5>Describe Yourself!</h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
@@ -219,7 +215,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<button class="btn large waves-effect waves-light col s2 offset-s5" id="btn-login" type="submit" name="submit">Submit
+			<button class="btn black large waves-effect waves-light col s2 offset-s5" id="btn-login" type="submit" name="submit">Submit
 				<i class="material-icons right">send</i>
 			</button>
 		</div>
@@ -227,7 +223,7 @@
 </div>
 <footer class="page-footer black">
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-bottom: 0">
             <p class="grey-text text-lighten-4 center">Developed and Created by</p>
 			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
         </div>

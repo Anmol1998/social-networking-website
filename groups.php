@@ -60,6 +60,14 @@
 				<i class="large material-icons" >add</i>
 			</a>
 		</div>
+		<footer class="page-footer black">
+    <div class="container">
+        <div class="row" style="margin-bottom: 0">
+            <p class="grey-text text-lighten-4 center">Developed and Created by</p>
+			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
+        </div>
+    </div>
+</footer>
 		
 	</body>
 </html>
