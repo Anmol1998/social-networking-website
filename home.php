@@ -189,7 +189,7 @@ font-family:ariel
 </style>
 <!--Initialisations end-->
 
-<body>
+<body style="overflow-x:hidden">
 <div id="navbar" class="scrollspy"></div>
 <nav>
     <div class="col s12 m12 l12 nav-wrapper black">
