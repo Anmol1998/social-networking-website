@@ -12,6 +12,24 @@
 		}
 	}
 ?>
+<style>
+h1,h2,h3,h4,h5,h6{
+font-family:ariel
+}
+body::-webkit-scrollbar {
+    width: 0.5em;
+	background-color:transparent;
+}
+ 
+body::-webkit-scrollbar-track {
+    
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  
+}
+</style>
 <html>
 <head>
 <title>Form</title>
