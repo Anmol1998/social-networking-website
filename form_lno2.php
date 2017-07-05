@@ -80,7 +80,7 @@
   
 <div class="row">
    <div class="col offset-s2">
-		<h5>Person</h5>
+		<h5><b>Person</b></h5>
 	</div>
 </div>
 <div class="row">
@@ -124,7 +124,7 @@
 		</div>
 		<div class="row">
 			<div class="col l4 offset-l2">
-				<h5>Gender</h5>
+				<h5><b>Gender</b></h5>
 				<div class="input-field">
 					<select class="browser-default"  name="gender">
 						<option value="" disabled selected>Choose your option</option>
@@ -134,13 +134,13 @@
 				</div>
 			</div>
 			<div class="col l4">
-				<h5>Date of Birth</h5>
+				<h5><b>Date of Birth</b></h5>
 				<input type="date" class="datepicker" name="dob">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col l4 offset-l2">
-				<h5>Location</h5>
+				<h5><b>Location</b></h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
@@ -159,38 +159,34 @@
 		</div>
 		<div class="row">
 			<div class="col offset-s2">
-				<h5>Education and Work</h5>
-			</div>
-			<div class="col s12">
-				<div class="row">
-					<div class="input-field col s3 offset-s2">
-						<i class="material-icons prefix">class</i>
-						<input id="school" type="text" class="validate" name="school">
-						<label for="school">School</label>
-					</div>
-					<div class="input-field col s3">
-						<i class="material-icons prefix">class</i>
-						<input id="college" type="text" class="validate" name="college">
-						<label for="college">College</label>
-					</div>
-					<div class="input-field col s3">
-						<i class="material-icons prefix">work</i>
-						<input id="work" type="text" class="validate" name="work">
-						<label for="work">Work</label>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col offset-s2">
-				<h5>Contact Info</h5>
+				<h5><b>Education and Work</b></h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
 					<div class="input-field col s4 offset-s2">
-						<i class="material-icons prefix">email</i>
-						<input id="email" type="email" class="validate" name="email">
-						<label for="email" data-error="wrong" data-success="right">Email</label>
+						<i class="material-icons prefix">class</i>
+						<input id="school" type="text" class="validate" name="school">
+						<label for="school">School</label>
+					</div>
+					<div class="input-field col s4">
+						<i class="material-icons prefix">class</i>
+						<input id="college" type="text" class="validate" name="college">
+						<label for="college">College</label>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4 offset-s2">
+				<h5><b>Contact Info</b></h5>
+			</div>
+			<div class="col s12">
+				<div class="row">
+				<div class="input-field col s4 offset-s2">
+						<i class="material-icons prefix">work</i>
+						<input id="work" type="text" class="validate" name="work">
+						<label for="work">Work</label>
 					</div>
 					<div class="input-field col s4">
 						<i class="material-icons prefix">phone</i>
@@ -202,7 +198,7 @@
 		</div>	
 		<div class="row">
 			<div class="col offset-s2">
-				<h5>Describe Yourself!</h5>
+				<h5><b>Describe Yourself!</b></h5>
 			</div>
 			<div class="col s12">
 				<div class="row">
