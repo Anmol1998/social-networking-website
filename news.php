@@ -18,7 +18,7 @@
       </ul>
     </div>
   </nav>
-  <div id="results" class="container"data-url="<?php if (!empty($url)) echo $url ?>">
+  <div id="results" class="container" data-url="<?php if (!empty($url)) echo $url ?>">
   <?php
 	if(!empty($news_array)){
 		$i=0;
@@ -34,9 +34,9 @@
 							<div class="card-image waves-effect waves-block waves-light">
 								<img class="activator" src='.$item->urlToImage.'>
 							</div>
-							<div class="card-content">
-								<span class="card-title activator grey-text text-darken-4">'.$item->title.'<i class="material-icons right">more_vert</i></span>
-								<p>'.$item->description.'<a href="'.$item->url.'">...</a></p>
+							<div class="card-content" style="height:25%; overflow-y:hidden">
+								<span class="card-title activator grey-text text-darken-4"><a href="'.$item->url.'">'.$item->title.'</a></span>
+								<p>'.$item->description.'</a></p>
 							</div>
 						</div>
 					</div>';
