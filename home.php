@@ -332,7 +332,7 @@ font-family:ariel
 </div>
  <footer class="page-footer black">
           <div class="container">
-            <div class="row">
+            <div class="row" style="margin-bottom:0px">
                 <p class="grey-text text-lighten-4 center">Developed and Created by</p>
         <p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
             </div>
