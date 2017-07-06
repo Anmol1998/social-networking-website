@@ -28,6 +28,7 @@
 	}
 	if(isset($_POST['sendfrq'])){
 		friendrequest_send($_SESSION['userName'],$uname);
+		
 	}
 	// type=0 -> friend request sent; type=1 -> friend request accepted; type=2 ->blocked
 	if(isset($_POST['submit']))
@@ -109,13 +110,13 @@
   <div class="modal-content center black-text">
   <?php
 		if(isset($_POST['accept'])){
-			friendrequest_action($uname,$_POST['username'],1);
+			friendrequest_action($_SESSION['userName'],$_POST['username'],1);
 		}else if(isset($_POST['block'])){
-			friendrequest_action($uname,$_POST['username'],2);
+			friendrequest_action($_SESSION['userName'],$_POST['username'],2);
 		}else if(isset($_POST['reject'])){
-			friendrequest_action($uname,$_POST['username'],3);
+			friendrequest_action($_SESSION['userName'],$_POST['username'],3);
 		}
-		$frnd_req=friendrequest_show($uname);
+		$frnd_req=friendrequest_show($_SESSION['userName']);
 		if(count($frnd_req)>0){
 		foreach($frnd_req as $fr){
 			$query="SELECT firstname, lastname FROM members WHERE userName='$fr'";
@@ -151,8 +152,8 @@
 			<center><a class="waves-effect waves-light btn"><?php echo $disp_firstname.' '.$disp_lastname; ?></a></center>
 			<?php
 				if($uname!=$_SESSION['userName']){
-					if(!in_array($uname,frndlist($_SESSION['userName']))){
-						echo '<center><button class="btn waves-effect waves-light black col s2 offset-s2" id="btn-sfrq" type="submit" name="sendfrq">Send Friend Request</button><center>';						
+					if(friendcheck($_SESSION['userName'],$uname)==-1){
+						echo '<form method="post" action="'.htmlspecialchars($_SERVER['PHP_SELF']).'?userName='.$uname.'"><center><button class="btn waves-effect waves-light black col s2 offset-s2" id="sendfrq" type="submit" name="sendfrq">Send Friend Request</button><center></form>';						
 					}
 				}
 			?>
