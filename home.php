@@ -72,7 +72,7 @@
 		// if there's no error, continue to signup
 		if( $error==false ) {
 
-			$query = "INSERT INTO users(userEmail,userName,userPSW) VALUES($email','$uname','$password')";
+			$query = "INSERT INTO users(userEmail,userName,userPSW) VALUES('$email','$uname','$password')";
 			$res = mysql_query($query);
 			if ($res) {
 				$errTyp = "success";
@@ -92,7 +92,7 @@
 				}
 			} else {
 				$errTyp = "danger";
-				$errMSG = "Something went wrong, try again later...";
+				$errMSG = $res;
 			}
 		}
 	}
