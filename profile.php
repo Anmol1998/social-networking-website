@@ -94,7 +94,7 @@
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><form><div class="input-field"><input id="search" type="text" name="search" placeholder="Search a Friend..." onkeyup="showHint(this.value)"></div></form></li>
 					<li><a class="modal-trigger" href="#req1">Friend Requests</a></li>
-					<li><a href="home.html">Home</a></li>
+					<li><a href="home.php">Home</a></li>
 					<li><a href="interestpage.html">Other Interests</a></li>
 				</ul>
 			</div>
