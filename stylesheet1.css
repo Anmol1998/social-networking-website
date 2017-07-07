@@ -17,7 +17,7 @@
 		transition: all 20ms ease-out;
 		vertical-align: top;
 		
-		width:90px;		
+		width:100px;		
 		background:url(emojis/default.png) center left no-repeat;	
 		background-position: left 10px top 2px;
 	}

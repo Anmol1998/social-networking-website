@@ -27,15 +27,15 @@ body::-webkit-scrollbar-thumb {
 <head>
 	<title>Interests</title>
 </head>
+<script src="facebook-reactions.js"></script>
 <script src="jquery-2.1.4.js"></script>
 <script src="jquery-ui_1.12.1_.min.js"></script>
-<script src="facebook-reactions.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="stylesheet1.css">
 <link rel="stylesheet" href="cssr/materialize.css">
 <script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js1/materialize.min.1.js"></script>
 <script type="text/javascript" src="js1/materialize.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
 <nav>
@@ -52,13 +52,13 @@ body::-webkit-scrollbar-thumb {
   <br>
   <?php
 	foreach($pids as $pid){
-		$query="SELECT * FROM posts WHERE id='$pid'";
+		$query="SELECT * FROM posts WHERE id='$pid' ORDER BY time DESC";
 		$res=mysql_query($query);
 		$row=mysql_fetch_assoc($res);
 		$emoji="";
 		$emojitext="Like";
-		$reactions=explode($row['reactions']);
-		if(in_array($uname,$reaction)){
+		$reactions=explode(';',$row['reactions']);
+		if(in_array($uname,$reactions)){
 			$emoji=check_emoji($pid,$uname);
 		}
 		switch($emoji){
@@ -84,15 +84,15 @@ body::-webkit-scrollbar-thumb {
 						</div>
 						<div class="card-content">';
 							if($row['bold']==1){
-								echo '<span class="card-title activator grey-text text-darken-4"><b>'.$row['caption'].'</b><i class="material-icons right">more_vert</i></span>';
+								echo '<span class="card-title activator grey-text text-darken-4"><b>'.$row['caption'].'</b></span>';
 							}else{
-								echo '<span class="card-title activator grey-text text-darken-4">'.$row['caption'].'<i class="material-icons right">more_vert</i></span>';
+								echo '<span class="card-title activator grey-text text-darken-4">'.$row['caption'].'</span>';
 							}
-		echo '			<div style="" align="left">
-							<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="'.$emoji.'">
-							<span style="">'.$emojitext.' ('.count(explode($row[$emoji])).' )</span>
-							</a>    
-						</div>';
+		echo '				<div>
+								<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="'.$emoji.'">
+								<span>'.$emojitext.' ('.count(explode(';',$row[$emoji])).')</span>
+								</a>    
+							</div>';
 		?>
 						<form method="post" action="'.<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>.'">
 							<div class="input-field">
@@ -103,6 +103,7 @@ body::-webkit-scrollbar-thumb {
 					</div>
 				</div>
 			</div>
+		</div>
 	<?php }
   ?>
 	<div class="fixed-action-btn" style="bottom: 14px; right:3%;">
