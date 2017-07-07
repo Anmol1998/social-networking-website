@@ -16,8 +16,8 @@
             
 			postUrl: false, // once user will select an emoji, lets save this selection via ajax to DB.
 			defaultText: "Like", // default text for button
-			pid:"rj",
-			uname:"rj",
+			pid:false,
+			uname:false
 				
 		}, options);
 		
@@ -112,12 +112,11 @@
 								control_id: control_id,
 								value: value,
 								pid: settings.pid,
-								uname: settings.uname
+								uname: settings.uname,
 							}, // our data object
 				success	:	function(data){
 					
 					// nothing requires here but you can add something here. 
-					alert(formData);
 					console.log(data);
 				},
 				error: function() {
