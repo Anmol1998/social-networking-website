@@ -1,10 +1,8 @@
 <?php
-
 	ob_start();
 	session_start();
 	include_once 'dbconnect.php';
 	include_once 'frnd.php';
-
 	$uname=$_GET['userName'];
 	$query = "SELECT * FROM members WHERE userName='$uname'";
 	$res = mysql_query($query);
@@ -69,17 +67,13 @@
 				unset($telephone);
 				unset($description);
 				
-				header("Location: interestpage.html");
+				header("Location: profile.php?userName=$uname");
 			} else {
 				$errTyp = "danger";
 				$errMSG = "Something went wrong, try again later...";
 			}
 }
 }
-
-
-
-
 	?>
 <html>
 	<head>
@@ -382,7 +376,6 @@ $(document).ready(function(){
   });
   </script>
 <script>
-
   $('.collapsible').collapsible({
     accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
   });
@@ -398,7 +391,6 @@ $(document).ready(function(){
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
-
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementById('myImg');
 var modalImg = document.getElementById("img01");
@@ -408,10 +400,8 @@ img.onclick = function(){
     modalImg.src = this.src;
     captionText.innerHTML = this.alt;
 }
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
   modal.style.display = "none";
