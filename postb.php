@@ -74,38 +74,40 @@
 		$res=mysql_query($query);
 		$row=mysql_fetch_assoc($res);
 		if(in_array($uname,explode(';',$row['reactions'])) and $value!='null'){
+			echo '1';
 			$emoji=check_emoji($pid,$uname);
 			$row[$emoji]=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
 			$x=explode(';',$row[$value]);
 			array_push($x,$uname);
 			$row[$value]=implode(';',$x);
 			$query="UPDATE posts SET $emoji='$row[$emoji]', $value='$row[$value]' WHERE id='$pid'";
-			$res=mysql_query($res);
+			$res=mysql_query($query);
 			if($res){
 				return "Reaction Updated";
 			}else{
 				return "Something went Wrong";
 			}
 		}else if(in_array($uname,explode(';',$row['reactions'])) and $value=='null'){
+			echo '2';
 			$emoji=check_emoji($pid,$uname);
 			$row[$emoji]=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
 			$x=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
 			$query="UPDATE posts SET $emoji='$row[$emoji]', reactions='$x' WHERE id='$pid'";
-			$res=mysql_query($res);
+			$res=mysql_query($query);
 			if($res){
 				return "Reaction Updated";
 			}else{
 				return "Something went Wrong";
 			}
 		}else{
-			$x=explode(';',$row[$emoji]);
+			$x=explode(';',$row[$value]);
 			array_push($x,$uname);
 			$row[$value]=implode(';',$x);
 			$x=explode(';',$row['reactions']);
 			array_push($x,$uname);
 			$x=implode(';',$x);
 			$query="UPDATE posts SET $value='$row[$value]', reactions='$x' WHERE id='$pid'";
-			$res=mysql_query($res);
+			$res=mysql_query($query);
 			if($res){
 				return "Reaction Updated";
 			}else{
