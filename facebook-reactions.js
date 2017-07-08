@@ -20,7 +20,6 @@
 			uname:false
 				
 		}, options);
-		
 		var emoji_value;
 		
 		var _react_html = '<div style="position:absolute; z-index: 1;" class="_bar" data-status="hidden"><div class="_inner">'; 
@@ -48,7 +47,7 @@
 		
 		// on click emotions
 		$('.emoji').on("click",function (e) {
-			
+			alert(settings.pid);
 			if(e.target !== e.currentTarget) return;	
 			
 			var base = $(this).parent().parent().parent();
@@ -117,6 +116,7 @@
 				success	:	function(data){
 					
 					// nothing requires here but you can add something here. 
+					alert(settings.pid+" "+settings.uname);
 					console.log(data);
 				},
 				error: function() {

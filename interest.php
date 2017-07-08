@@ -27,15 +27,15 @@ body::-webkit-scrollbar-thumb {
 <head>
 	<title>Interests</title>
 </head>
-<script src="facebook-reactions.js"></script>
-<script src="jquery-2.1.4.js"></script>
-<script src="jquery-ui_1.12.1_.min.js"></script>
 <link rel="stylesheet" href="stylesheet1.css">
 <link rel="stylesheet" href="cssr/materialize.css">
 <script type="text/javascript" src="js1/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js1/materialize.min.1.js"></script>
 <script type="text/javascript" src="js1/materialize.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery-2.1.4.js"></script>
+<script src="jquery-ui_1.12.1_.min.js"></script>
+<script src="facebook-reactions.js"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
 <nav>
@@ -75,31 +75,31 @@ body::-webkit-scrollbar-thumb {
 			case 'angry': $emojitext="angry";
 			break;
 		}
-		echo '
+		?>
 			<div class="row"> 
 				<div class="card col s6 m6 l6 offset-l3">
 					<div class "card medium">
 						<div class="card-image waves-effect waves-block waves-light">
-							<img src="data:image/jpeg;base64,'.base64_encode($row['image']).'"/>
+							<img src="<?php echo 'data:image/jpeg;base64,'.base64_encode($row['image']); ?>"/>
 						</div>
-						<div class="card-content">';
-							if($row['bold']==1){
+						<div class="card-content">
+						<?php	if($row['bold']==1){
 								echo '<span class="card-title activator grey-text text-darken-4"><b>'.$row['caption'].'</b></span>';
 							}else{
 								echo '<span class="card-title activator grey-text text-darken-4">'.$row['caption'].'</span>';
 							}
-		?>
+						?>
 							<div>
 								<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="<?php echo $emoji; ?>">
 								<span style=""><?php echo $emojitext.' ('.count(explode(';',$row[$emoji])).')';?></span>
 								</a>    
-							</div>
-						<form method="post">
+						<form method="post" action="<?php echo htmlspecialchars($_SERVER['SELF_PHP']); ?>">
 							<div class="input-field">
 								<input id="postid" type="hidden" class="validate" name="postid" value="<?php echo $pid ?>">
 								<input id="username" type="hidden" class="validate" name="username" value="<?php echo $uname ?>">
 							</div>
 						</form>
+							</div>
 					</div>
 				</div>
 			</div>
