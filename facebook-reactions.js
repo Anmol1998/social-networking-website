@@ -101,9 +101,7 @@
 		// ajax
 		function __ajax(control_id, value){
 			
-			// here we have control id and value. We need to save them into db. You can change it according to yours requirements. 
-			var formData = "control_id="+control_id+"&value="+value;
-							
+						
 			$.ajax({
 				type	:	'POST', // define the type of HTTP verb we want to use (POST for our form)
 				url		:	settings.postUrl, // the url where we want to POST
@@ -116,7 +114,6 @@
 				success	:	function(data){
 					
 					// nothing requires here but you can add something here. 
-					alert(settings.pid+" "+settings.uname);
 					console.log(data);
 				},
 				error: function() {
