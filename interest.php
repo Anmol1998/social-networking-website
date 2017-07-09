@@ -77,7 +77,7 @@ body::-webkit-scrollbar-thumb {
 		}
 		?>
 			<div class="row"> 
-				<div class="card col s6 m6 l6 offset-l3">
+				<div class="card col s6 m6 l6 offset-l3 offset-m3 offset-s3">
 					<div class "card medium">
 						<div class="card-image waves-effect waves-block waves-light">
 							<img src="<?php echo 'data:image/jpeg;base64,'.base64_encode($row['image']); ?>"/>
