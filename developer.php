@@ -70,7 +70,7 @@ button:hover, a:hover {
 			<div class="row">
 				<div class="col l12 m12 s12">
 					<div class="row">
-						<div class ="col l3 m3 s3">
+						<div class ="col l3 m3 s3 ">
 							<br>
 							<center><img class="z-depth-3" src="team/yash.jpg" style="width:100%; border-radius:50%"><br>
 							</center>
