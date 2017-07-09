@@ -100,7 +100,7 @@ button:hover, a:hover {
 				</div>
 			</div>
 			<div class="row grey-text text-darken-1">
-				<div class="col l3 ">
+				<div class="col l3 m3 s3">
 					<center>	
 						<img class="z-depth-5" src="team/rakshit.jpg" style="width:75%; border-radius:50%">
 						<h5>Rakshit Jain</h5>
@@ -108,7 +108,7 @@ button:hover, a:hover {
 						<a href="#"><i class="fa fa-linkedin"></i></a>
 					</center>
 				</div>
-				<div class="col l3">
+				<div class="col l3 m3 s3">
 					<center>	
 						<img class="z-depth-5" src="team/aman.jpg" style="width:75%; border-radius:50%">
 						<h5>Aman Deep Singh</h5>
@@ -116,7 +116,7 @@ button:hover, a:hover {
 						<a href="https://www.linkedin.com/in/aman-deep-singh-a809b7142/"><i class="fa fa-linkedin"></i></a>
 					</center>
 				</div>
-				<div class="col l3">
+				<div class="col l3 m3 s3">
 					<center>	
 						<img class="z-depth-5" src="team/anmol.jpg" style="width:75%; border-radius:50%">
 						<h5>Anmol Agrawal</h5>
@@ -124,7 +124,7 @@ button:hover, a:hover {
 						<a href="#"><i class="fa fa-linkedin"></i></a>
 					</center>
 				</div>
-				<div class="col l3">
+				<div class="col l3 m3 s3">
 					<center>	
 						<img class="z-depth-5" src="team/sakshi.jpg" style="width:75%; border-radius:50%">
 						<h5>Sakshi Aggarwal</h5>
