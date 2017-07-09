@@ -154,7 +154,7 @@
 		<!--About me-->
 		<div class="row">
 			<div id="about me" class="section scrollspy">
-				<div class="col s12 m6 l6 offset-l3">
+				<div class="col s6 m6 l6 offset-l3 offset-m3 offset-s3">
 					<div class="card red lighten-5 z-depth-1">
 						<div class="card-content black-text">
 							<span class="card-title">About Me!</span>
@@ -164,7 +164,7 @@
 				</div>
 			</div>
 			<!--Collapsible-->
-			<div class="col l6 offset-l3">
+			<div class="col l6 m6 s6 offset-l3 offset-m3 offset-s3">
 				<div id="social info" class="section scrollspy">
 					<ul class="collapsible" data-collapsible="expandable">
 						<li>
@@ -299,7 +299,7 @@
 </div>
 </div>
 <div class="row center">
-<button class="btn black large waves-effect waves-light col l2 offset-l5" id="btn-login" type="submit" name="submit">Submit
+<button class="btn black large waves-effect waves-light col l2 offset-l5 offset-m5 offset-s5" id="btn-login" type="submit" name="submit">Submit
 				<i class="material-icons right">send</i>
 			</button>
 </div>
@@ -312,7 +312,7 @@
 			<!--from city-->
 			<div class="row">
 				<div id="general info" class="section scrollspy">
-					<div class="col l6 offset-l3">
+					<div class="col l6 m6 s6 offset-l3 offset-m3 offset-s3">
 						<ul class="collection">
 							<li class="collection-item avatar">
 								<i class="material-icons circle red">room</i>
