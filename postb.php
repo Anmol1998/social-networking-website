@@ -48,7 +48,7 @@
 		}
 	}
 	function check_emoji($pid, $uname){
-		$query="SELECT like,love,haha,wow,sad,angry FROM posts WHERE id='$pid'";
+		$query="SELECT * FROM posts WHERE id='$pid'";
 		$res=mysql_query($query);
 		if($res){
 			$row=mysql_fetch_assoc($res);

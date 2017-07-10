@@ -16,8 +16,6 @@
             
 			postUrl: false, // once user will select an emoji, lets save this selection via ajax to DB.
 			defaultText: "Like", // default text for button
-			pid:false,
-			uname:false
 				
 		}, options);
 		var emoji_value;
@@ -47,7 +45,6 @@
 		
 		// on click emotions
 		$('.emoji').on("click",function (e) {
-			alert(settings.pid);
 			if(e.target !== e.currentTarget) return;	
 			
 			var base = $(this).parent().parent().parent();
@@ -89,7 +86,7 @@
 						
 						if ( settings.postUrl ) {
 						
-							__ajax(base.attr("data-unique-id"), emoji_value);
+							__ajax(base.attr("data-unique-id"), emoji_value, base.attr("data-emoji-uname"),base.attr("data-emoji-pid"));
 						}
 					});
 				});
@@ -99,7 +96,7 @@
 		});
 		
 		// ajax
-		function __ajax(control_id, value){
+		function __ajax(control_id, value, uname, pid){
 			
 						
 			$.ajax({
@@ -108,8 +105,8 @@
 				data	:	{
 								control_id: control_id,
 								value: value,
-								pid: settings.pid,
-								uname: settings.uname,
+								pid: pid,
+								uname: uname,
 							}, // our data object
 				success	:	function(data){
 					
@@ -133,6 +130,8 @@
 				
 				if(e.target !== e.currentTarget) return;	
 				var isLiked = $(this).parent().attr("data-emoji-class");
+				var uname = $(this).parent().attr("data-emoji-uname");
+				var pid = $(this).parent().attr("data-emoji-pid");
 				var control_id = $(this).parent().attr("data-unique-id");
 				
 				$(this).html(settings.defaultText);	
@@ -142,14 +141,14 @@
 					$(this).parent().attr("data-emoji-class", "");
 					
 					if ( settings.postUrl )
-						__ajax(control_id, null);
+						__ajax(control_id, null,uname,pid);
 				}
 				else
 				{				
 					$(this).parent().attr("data-emoji-class", "like");
 					
 					if ( settings.postUrl )
-						__ajax(control_id, "like");
+						__ajax(control_id, "like",uname,pid);
 				}
 			});
 			

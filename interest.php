@@ -77,7 +77,7 @@ body::-webkit-scrollbar-thumb {
 		}
 		?>
 			<div class="row"> 
-				<div class="card col s6 m6 l6 offset-l3 offset-m3 offset-s3">
+				<div class="card col s6 m6 l6 offset-l3">
 					<div class "card medium">
 						<div class="card-image waves-effect waves-block waves-light">
 							<img src="<?php echo 'data:image/jpeg;base64,'.base64_encode($row['image']); ?>"/>
@@ -90,7 +90,7 @@ body::-webkit-scrollbar-thumb {
 							}
 						?>
 							<div>
-								<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="<?php echo $emoji; ?>">
+								<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="<?php echo $emoji; ?>" data-emoji-uname="<?php echo $uname; ?>" data-emoji-pid="<?php echo $pid; ?>">
 								<span style=""><?php echo $emojitext.' ('.count(explode(';',$row[$emoji])).')';?></span>
 								</a>    
 						<form method="post" action="<?php echo htmlspecialchars($_SERVER['SELF_PHP']); ?>">
@@ -139,8 +139,6 @@ body::-webkit-scrollbar-thumb {
 $(document).ready(function() {
   $('.FB_reactions').facebookReactions({
     postUrl: "reaction_update.php",
-	pid: document.getElementById("postid").value,
-	uname: document.getElementById("username").value
   });
 });
 </script>
