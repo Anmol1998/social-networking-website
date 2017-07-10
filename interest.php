@@ -91,14 +91,8 @@ body::-webkit-scrollbar-thumb {
 						?>
 							<div>
 								<a class="FB_reactions" data-reactions-type="horizontal" data-unique-id="1" data-emoji-class="<?php echo $emoji; ?>" data-emoji-uname="<?php echo $uname; ?>" data-emoji-pid="<?php echo $pid; ?>">
-								<span style=""><?php echo $emojitext.' ('.count(explode(';',$row[$emoji])).')';?></span>
+								<span style=""><?php echo $emojitext.' ('.count(array_diff(explode(';',$row[$emoji]),array(''))).')';?></span>
 								</a>    
-						<form method="post" action="<?php echo htmlspecialchars($_SERVER['SELF_PHP']); ?>">
-							<div class="input-field">
-								<input id="postid" type="hidden" class="validate" name="postid" value="<?php echo $pid ?>">
-								<input id="username" type="hidden" class="validate" name="username" value="<?php echo $uname ?>">
-							</div>
-						</form>
 							</div>
 					</div>
 				</div>

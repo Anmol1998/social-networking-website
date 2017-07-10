@@ -65,7 +65,7 @@
 			}else if(in_array($uname,explode(';',$row['angry']))){
 				return 'angry';
 			}else{
-				return 'null';
+				return '';
 			}
 		}
 	}
@@ -73,26 +73,25 @@
 		$query="SELECT * FROM posts WHERE id='$pid'";
 		$res=mysql_query($query);
 		$row=mysql_fetch_assoc($res);
-		if(in_array($uname,explode(';',$row['reactions'])) and $value!='null'){
-			echo '1';
+		
+		if(in_array($uname,explode(';',$row['reactions'])) and $value==''){
 			$emoji=check_emoji($pid,$uname);
 			$row[$emoji]=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
-			$x=explode(';',$row[$value]);
-			array_push($x,$uname);
-			$row[$value]=implode(';',$x);
-			$query="UPDATE posts SET $emoji='$row[$emoji]', $value='$row[$value]' WHERE id='$pid'";
+			$x=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
+			$query="UPDATE posts SET posts.$emoji='$row[$emoji]', reactions='$x' WHERE id='$pid'";
 			$res=mysql_query($query);
 			if($res){
 				return "Reaction Updated";
 			}else{
 				return "Something went Wrong";
 			}
-		}else if(in_array($uname,explode(';',$row['reactions'])) and $value=='null'){
-			echo '2';
+		}else if(in_array($uname,explode(';',$row['reactions'])) and $value!=''){
 			$emoji=check_emoji($pid,$uname);
 			$row[$emoji]=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
-			$x=implode(';',array_diff(explode(';',$row[$emoji]),array($uname)));
-			$query="UPDATE posts SET $emoji='$row[$emoji]', reactions='$x' WHERE id='$pid'";
+			$x=explode(';',$row[$value]);
+			array_push($x,$uname);
+			$row[$value]=implode(';',$x);
+			$query="UPDATE posts SET posts.$emoji='$row[$emoji]', posts.$value='$row[$value]' WHERE id='$pid'";
 			$res=mysql_query($query);
 			if($res){
 				return "Reaction Updated";
@@ -106,7 +105,7 @@
 			$x=explode(';',$row['reactions']);
 			array_push($x,$uname);
 			$x=implode(';',$x);
-			$query="UPDATE posts SET $value='$row[$value]', reactions='$x' WHERE id='$pid'";
+			$query="UPDATE posts SET posts.$value='$row[$value]', reactions='$x' WHERE id='$pid'";
 			$res=mysql_query($query);
 			if($res){
 				return "Reaction Updated";
