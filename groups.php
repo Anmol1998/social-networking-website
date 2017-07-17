@@ -78,9 +78,9 @@ body::-webkit-scrollbar-thumb {
 				<i class="large material-icons" >add</i>
 			</a>
 		</div>
-		<footer class="page-footer black" style="position:absolute ; bottom:0px ; width:100%">
+		<footer class="page-footer black" style="position:absolute;right:0;bottom:0;left:0;">
     <div class="container">
-        <div class="row" style="margin-bottom: 0">
+        <div class="row">
             <p class="grey-text text-lighten-4 center">Developed and Created by</p>
 			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
         </div>

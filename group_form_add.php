@@ -96,9 +96,9 @@ body::-webkit-scrollbar-thumb {
 				</div>
 			</form>
 		</div>
-		<footer class="page-footer black">
+		<footer class="page-footer black" style="position:absolute;right:0;bottom:0;left:0;">
     <div class="container">
-        <div class="row" style="margin-bottom: 0">
+        <div class="row">
             <p class="grey-text text-lighten-4 center">Developed and Created by</p>
 			<p class="grey-text text-lighten-4 center">Indian Society for Technical Education - VITU Chapter</p>
         </div>
